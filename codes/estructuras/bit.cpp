@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -20,11 +21,12 @@ int sum(int i, int j){
 	return i > 1 ? sum(j) - sum(i-1) : sum(j);
 }
 void update(int i, int value){
-	for(; i <= MAXN ; i += lowbit(i))
+	for(; i <= N ; i += lowbit(i))
 		T[i] += value;
 }
-void build(int S){
-	for(int i=0; i < S; i++)
+void build(){
+	memset(T, 0, sizeof(T));
+	for(int i=0; i < N; i++)
 		update(i+1, A[i]);
 }
 int main(){
@@ -32,7 +34,7 @@ int main(){
 	for(int i = 0; i < N; ++i)	
 		cin >> A[i];
 
-	build(N);
+	build();
 	cout << sum( 1, N ) << endl;
 	return 0;
 }
