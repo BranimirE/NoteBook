@@ -1127,6 +1127,26 @@ lstinputlisting{grafos/bellmandford.cpp}
 \end_layout
 
 \begin_layout Section
+Floyd Warshall
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/FloydWarshall.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Componentes Fuertemente Conexas 
 \end_layout
 
@@ -1159,6 +1179,30 @@ status open
 
 \backslash
 lstinputlisting{grafos/Kosaraju.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Componentes Fuertemente Conexas (Tarjan 
+\begin_inset Formula $O(n+v)$
+\end_inset
+
+ )
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/Tarjan.cpp}
 \end_layout
 
 \end_inset
