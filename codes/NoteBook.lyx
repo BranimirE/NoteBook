@@ -71,9 +71,9 @@ breaklines=true}
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 3cm
-\topmargin 3cm
-\rightmargin 3cm
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
 \bottommargin 3cm
 \secnumdepth 3
 \tocdepth 3
@@ -92,10 +92,6 @@ breaklines=true}
 
 \begin_body
 
-\begin_layout Title
-NoteBook
-\end_layout
-
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
@@ -106,7 +102,7 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Chapter
-Ad-hoc y utilidades
+Ad-hoc
 \end_layout
 
 \begin_layout Section
@@ -411,7 +407,7 @@ patron
 \end_layout
 
 \begin_layout Section
-Utilidades
+Invertir Bytes
 \end_layout
 
 \begin_layout Standard
@@ -578,8 +574,68 @@ lstinputlisting{estructuras/trie.cpp}
 Complete Search 
 \end_layout
 
+\begin_layout Section
+El problema de las ocho reinas
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{busquedacompleta/ochoreinas.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Divide y venceras
+\end_layout
+
+\begin_layout Section
+Busqueda Binaria (Recursivo)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{divideyvenceras/busquedabinariarecursivo.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Busqueda Binaria (Iterativo)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{divideyvenceras/busquedabinariaiterativo.cpp}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -734,8 +790,10 @@ Si el segundo elemento de X’ tenemos 2 entonces en la lista Y’ buscamos
 \end_layout
 
 \begin_layout Standard
+x
 \begin_inset Graphics
 	filename imagenes/meet.png
+	scale 70
 
 \end_inset
 
@@ -751,6 +809,22 @@ Si bien se dan cuenta es muy importante tener ambas listas de una manera
 \begin_layout Standard
 El algoritmo sigue buscando hasta terminar con el último elemento de la
  primera lista.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{divideyvenceras/meetinthemiddle.cpp}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -790,10 +864,6 @@ OPT(j-1,W) & (w_{j}>W)\\
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -822,6 +892,94 @@ status open
 
 \backslash
 lstinputlisting{programaciondinamica/coin_change.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+LIS (
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/lis1.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+LIS (
+\begin_inset Formula $O(n\, log(n)$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/lis2.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Maxima submatriz de ceros
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/maximasubmatrizceros.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Submatriz de suma maxima
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/sumamaxima.cpp}
 \end_layout
 
 \end_inset
@@ -1136,6 +1294,22 @@ lstinputlisting{matematicas/criba.cpp}
 Triangulo de Pascal
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/pascal.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Combinaciones(Para numeros muy grandes)
 \end_layout
@@ -1240,6 +1414,96 @@ lstinputlisting{matematicas/karatsuba.java}
 
 \end_layout
 
+\begin_layout Section
+Integracion de Simpson
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/integracion.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Inverso modular
+\end_layout
+
+\begin_layout Standard
+Si queremos hallar 
+\begin_inset Formula $a/b(mod\, p)$
+\end_inset
+
+ donde 
+\begin_inset Formula $p$
+\end_inset
+
+ es 
+\begin_inset Formula $primo$
+\end_inset
+
+, es lo mismo que:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(a*b^{-1})(mod\, p)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde 
+\begin_inset Formula $b^{-1}$
+\end_inset
+
+ es el inverso modular de 
+\begin_inset Formula $b$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+Para hallar el inverso modular de un numero 
+\begin_inset Formula $x$
+\end_inset
+
+modulo 
+\begin_inset Formula $p$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x^{-1}(mod\, p)=modpow(x,p-2,p)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Entonces, volviendo al problema:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a/b(mod\, p)=(a*modpow(b,p-2,p)%)%p
+$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Cadenas
 \end_layout
@@ -1329,6 +1593,35 @@ lstinputlisting{cadenas/ipermutacion.cpp}
 \end_layout
 
 \begin_layout Section
+Algoritmo de Manacher
+\end_layout
+
+\begin_layout Standard
+El algoritmo guarda el tamaño del palindrome mas grande en LP[pos] que tiene
+ como centro las posición 
+\emph on
+pos
+\emph default
+ en la cadena original
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/manacher.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Trie
 \end_layout
 
@@ -1370,6 +1663,182 @@ lstinputlisting{geometria/interseccionrect.cpp}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Distancia Punto - Segmento
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{geometria/puntosegmento.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Distancia Punto - Recta
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{geometria/puntorecta.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Utilitarios
+\end_layout
+
+\begin_layout Section
+Plantilla
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{utilitarios/plantilla.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lectura rapida
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{utilitarios/entrada.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Busqueda binaria
+\end_layout
+
+\begin_layout Standard
+C++'s Standard Template Library has four functions for binary search, depending
+ on what information you want to get.
+ They all need 
+\end_layout
+
+\begin_layout LyX-Code
+#include <algorithm> 
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+lower_bound()
+\series default
+ function returns an iterator to the first position where a value could
+ be inserted without violating the order; i.e.
+ the first element equal to the element you want, or the place where it
+ would be inserted.
+\end_layout
+
+\begin_layout LyX-Code
+int *ptr = std::lower_bound(array, array+len, what); 
+\end_layout
+
+\begin_layout LyX-Code
+// a custom comparator can be given as fourth arg
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+upper_bound()
+\series default
+ function returns an iterator to the last position where a value could be
+ inserted without violating the order; i.e.
+ one past the last element equal to the element you want, or the place where
+ it would be inserted.
+\end_layout
+
+\begin_layout LyX-Code
+int *ptr = std::upper_bound(array, array+len, what); 
+\end_layout
+
+\begin_layout LyX-Code
+// a custom comparator can be given as fourth arg
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+equal_range()
+\series default
+ function returns a pair of the results of lower_bound() and upper_bound().
+\end_layout
+
+\begin_layout LyX-Code
+std::pair<int *, int *> bounds = std::equal_range(array, array+len, what);
+ 
+\end_layout
+
+\begin_layout LyX-Code
+// a custom comparator can be given as fourth arg
+\end_layout
+
+\begin_layout Standard
+Note that the difference between the bounds is the number of elements equal
+ to the element you want.
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+binary_search()
+\series default
+ function returns true or false for whether an element equal to the one
+ you want exists in the array.
+ It does not give you any information as to where it is.
+\end_layout
+
+\begin_layout LyX-Code
+bool found = std::binary_search(array, array+len, what); 
+\end_layout
+
+\begin_layout LyX-Code
+// a custom comparator can be given as fourth arg
 \end_layout
 
 \end_body

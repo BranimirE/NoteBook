@@ -1,8 +1,3 @@
-/*
-ID: brani.e2
-PROG: calfflac
-LANG: C++
- */
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -33,8 +28,6 @@ void todoslosPalindromos(vector<int> &LP, int par){
 
 }
 int main() {
-	ifstream fin("calfflac.in");
-	ofstream fout("calfflac.out");
 	getline(fin,cad);
 	while(getline(fin,tmp))
 		cad +='\n'+tmp;
@@ -50,11 +43,11 @@ int main() {
 	todoslosPalindromos(LP,1);
 	todoslosPalindromos(LI,0);
 	int SOL1 = 0,SOL2 = 0;
-	//primero en los de tamaño impar
+	//primero en los de tamanio impar
 	for(int i = 0; i < N; i++)
 		if(LI[i]*2+1 > LI[SOL1]*2+1)
 			SOL1 = i;
-	//luego en los de tamaño par
+	//luego en los de tamanio par
 	for(int i = 0; i < N; i++)
 		if(LP[i]*2 > LP[SOL2]*2)
 			SOL2 = i;
