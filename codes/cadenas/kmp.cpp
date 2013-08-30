@@ -19,6 +19,6 @@ int KMP(string S, string K)
 		sp++;
 		if(kp == K.size()) matches.push_back(sp - K.size());
 	}
-	/* En el vector matches se guardan los índices a cada una de las ocurrencias, por tanto el tamaño de dicho vector nos dirá cuántas ocurrencias se han encontrado. */
+	/* En el vector matches se guardan los índices a cada una de las ocurrencias, por tanto el tamanio de dicho vector nos dirá cuántas ocurrencias se han encontrado. */
 	return matches.size();
 }

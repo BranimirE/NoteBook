@@ -1,14 +1,12 @@
-#include<iostream>
-#include<cstring>
-
-//encuentra todos los match de un patron en el texto
+#include <iostream>
+#include <cstring>
 
 using namespace std;
 
-int M,N;
+int M, N;
 
-//M tamaño del patron
-//N tamaño del texto
+//M tamanio del patron
+//N tamanio del texto
 
 void preBM(char P[], int bmNext[])
 {

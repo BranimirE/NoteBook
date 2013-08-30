@@ -1,0 +1,277 @@
+%% LyX 2.0.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,spanish]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{listings}
+\usepackage[spanish]{babel}
+\usepackage{times}
+
+\usepackage{color}
+\definecolor{javared}{rgb}{0.6,0,0} % cadenas
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comentarios
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % palabras clave
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc :D
+
+\lstset{language=C++,
+basicstyle=\ttfamily,
+frame=single,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+numbers=left,
+numberstyle=\small\color{black},
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false,
+breaklines=true}
+
+\makeatother
+
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\begin{document}
+
+\title{NoteBook}
+
+\maketitle
+\tableofcontents{}
+
+
+\chapter{AD-HOC}
+
+
+\section{Utilidades}
+
+\lstinputlisting{adhoc/utilidades.cpp}
+
+
+\section{Año bisiesto}
+
+\lstinputlisting{adhoc/bisiesto.cpp}
+
+
+\section{Doomsday}
+
+\lstinputlisting{adhoc/doomsday.cpp}
+
+
+\chapter{Estructuras}
+
+
+\section{Union - Find}
+
+\lstinputlisting{estructuras/unionfind.cpp}
+
+
+\section{BIT}
+
+\lstinputlisting{estructuras/bit.cpp}
+
+
+\section{Segment Tree}
+
+\lstinputlisting{estructuras/SegmenTree.cpp}
+
+
+\section{Segment Tree con Lazy Propagatión}
+
+\lstinputlisting{estructuras/SegmenTree_lazy.cpp}
+
+
+\section{Trie}
+
+\lstinputlisting{estructuras/trie.cpp}
+
+
+\chapter{Complete Search }
+
+
+\chapter{Divide y venceras}
+
+
+\section{MergeSort}
+
+Primera implementacion:
+
+\lstinputlisting{divideyvenceras/mergesort.cpp}
+
+Segunda implementación:
+
+\lstinputlisting{divideyvenceras/mergesort2.cpp}
+
+
+\chapter{Programación Dinamica}
+
+
+\section{El problema de la mochila}
+
+\lstinputlisting{programaciondinamica/mochila.cpp}
+
+
+\section{Cambio de modenas}
+
+\lstinputlisting{programaciondinamica/coin_change.cpp}
+
+
+\section{Distancia de edición (Algoritmo de Levenshtein)}
+
+\lstinputlisting{programaciondinamica/levenshtein.cpp}
+
+
+\chapter{Grafos}
+
+
+\section{BFS}
+
+\lstinputlisting{grafos/bfs.cpp}
+
+
+\section{DFS}
+
+\lstinputlisting{grafos/dfs_ff.cpp}
+
+
+\section{Topological Sort}
+
+G asiclico dirigido (DAG) 
+
+Las tareas no son independientes y la ejecución de una tarea sólo
+es posible si otras tareas que ya se han ejecutado. Solo hay un orden 
+
+\lstinputlisting{grafos/TopSort.cpp}
+
+
+\section{Dijkstra}
+
+\lstinputlisting{grafos/dijstra.cpp}
+
+
+\section{BellmandFord}
+
+Si un grafo contiene un ciclo de coste total negativo entonces este
+grafo no tiene solución
+
+\lstinputlisting{grafos/bellmandford.cpp}
+
+
+\section{Componentes Fuertemente Conexas }
+
+\lstinputlisting{grafos/scc.cpp}
+
+
+\section{Componentes Fuertemente Conexas (Kosaraju)}
+
+\lstinputlisting{grafos/Kosaraju.cpp}
+
+
+\section{Minimum Spanning Tree (Kruskall)}
+
+\lstinputlisting{grafos/kruskall.cpp}
+
+
+\section{MaxFlow}
+
+\lstinputlisting{grafos/MaxFlow.cpp}
+
+
+\chapter{Matemáticas}
+
+
+\section{GCD}
+
+\lstinputlisting{matematicas/gcd.cpp}
+
+
+\section{LCM}
+
+\lstinputlisting{matematicas/lcm.cpp}
+
+
+\section{Exponenciación rapida}
+
+\lstinputlisting{matematicas/exponenciacion.cpp}
+
+
+\section{Criba de Erathostenes}
+
+\lstinputlisting{matematicas/criba.cpp}
+
+
+\section{Triangulo de Pascal}
+
+
+\section{Combinaciones(Para numeros muy grandes)}
+
+\lstinputlisting{matematicas/combinaciones.cpp}
+
+
+\section{Polinomios}
+
+\lstinputlisting{matematicas/Polinomio.java}
+
+
+\section{Fibonacci ( $O(log(n))$ )}
+
+\lstinputlisting{matematicas/fibonacci.cpp}
+
+
+\section{Multiplicación entero por cadena}
+
+\lstinputlisting{matematicas/multiplicacion.cpp}
+
+
+\section{Multiplicación de numeros grandes (Karatsuba)}
+
+\lstinputlisting{matematicas/karatsuba.java}
+
+
+\chapter{Cadenas}
+
+
+\section{Utilidades}
+
+\lstinputlisting{cadenas/utilidades.cpp}
+
+
+\section{Boyer Moore}
+
+Encuentra todos los match de un patron en el texto.
+
+\lstinputlisting{cadenas/boyerMoore.cpp}
+
+
+\section{KMP}
+
+\lstinputlisting{cadenas/kmp.cpp}
+
+
+\section{Iesima permutación}
+
+\lstinputlisting{cadenas/ipermutacion.cpp}
+
+
+\section{Trie}
+
+\lstinputlisting{cadenas/trie.cpp}
+
+
+\chapter{Geometria Computacional}
+
+
+\section{Intersección de rectangulos}
+
+\lstinputlisting{geometria/interseccionrect.cpp}
+\end{document}

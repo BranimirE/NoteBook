@@ -1,0 +1,916 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{listings}
+\usepackage[spanish]{babel}
+\usepackage{times}
+
+\usepackage{color}
+\definecolor{javared}{rgb}{0.6,0,0} % cadenas
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comentarios
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % palabras clave
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc :D
+
+\lstset{language=C++,
+basicstyle=\ttfamily,
+frame=single,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+numbers=left,
+numberstyle=\small\color{black},
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false,
+breaklines=true}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+NoteBook
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+AD-HOC
+\end_layout
+
+\begin_layout Section
+Utilidades
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{adhoc/utilidades.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Año bisiesto
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{adhoc/bisiesto.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Doomsday
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{adhoc/doomsday.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Estructuras
+\end_layout
+
+\begin_layout Section
+Union - Find
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{estructuras/unionfind.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+BIT
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{estructuras/bit.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Segment Tree
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{estructuras/SegmenTree.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Segment Tree con Lazy Propagatión
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{estructuras/SegmenTree_lazy.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Trie
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{estructuras/trie.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Complete Search 
+\end_layout
+
+\begin_layout Chapter
+Divide y venceras
+\end_layout
+
+\begin_layout Section
+MergeSort
+\end_layout
+
+\begin_layout Standard
+Primera implementacion:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{divideyvenceras/mergesort.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Segunda implementación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{divideyvenceras/mergesort2.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Programación Dinamica
+\end_layout
+
+\begin_layout Section
+El problema de la mochila
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/mochila.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Cambio de modenas
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/coin_change.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Distancia de edición (Algoritmo de Levenshtein)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/levenshtein.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Grafos
+\end_layout
+
+\begin_layout Section
+BFS
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/bfs.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+DFS
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/dfs_ff.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Topological Sort
+\end_layout
+
+\begin_layout Standard
+G asiclico dirigido (DAG) 
+\end_layout
+
+\begin_layout Standard
+Las tareas no son independientes y la ejecución de una tarea sólo es posible
+ si otras tareas que ya se han ejecutado.
+ Solo hay un orden 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/TopSort.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Dijkstra
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/dijstra.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+BellmandFord
+\end_layout
+
+\begin_layout Standard
+Si un grafo contiene un ciclo de coste total negativo entonces este grafo
+ no tiene solución
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/bellmandford.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Componentes Fuertemente Conexas 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/scc.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Componentes Fuertemente Conexas (Kosaraju)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/Kosaraju.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Minimum Spanning Tree (Kruskall)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/kruskall.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+MaxFlow
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/MaxFlow.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Matemáticas
+\end_layout
+
+\begin_layout Section
+GCD
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/gcd.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+LCM
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/lcm.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Exponenciación rapida
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/exponenciacion.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Criba de Erathostenes
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/criba.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Triangulo de Pascal
+\end_layout
+
+\begin_layout Section
+Combinaciones(Para numeros muy grandes)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/combinaciones.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Polinomios
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/Polinomio.java}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fibonacci ( 
+\begin_inset Formula $O(log(n))$
+\end_inset
+
+ )
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/fibonacci.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Multiplicación entero por cadena
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/multiplicacion.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Multiplicación de numeros grandes (Karatsuba)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/karatsuba.java}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Cadenas
+\end_layout
+
+\begin_layout Section
+Utilidades
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/utilidades.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Boyer Moore
+\end_layout
+
+\begin_layout Standard
+Encuentra todos los match de un patron en el texto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/boyerMoore.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+KMP
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/kmp.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Iesima permutación
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/ipermutacion.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Trie
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/trie.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Geometria Computacional
+\end_layout
+
+\begin_layout Section
+Intersección de rectangulos
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{geometria/interseccionrect.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

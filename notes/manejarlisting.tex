@@ -1,0 +1,37 @@
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{listings}
+
+\makeatletter
+
+\usepackage[spanish]{babel}
+\usepackage{times}
+
+\usepackage{color}
+\definecolor{javared}{rgb}{0.6,0,0} % cadenas
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comentarios
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % palabras clave
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc :D
+
+\lstset{language=C++,
+basicstyle=\ttfamily,
+frame=single,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+numbers=left,
+numberstyle=\small\color{black},
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false,
+breaklines=true}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\lstinputlisting{../codes/grafos/kruskall.cpp}
+\end{document}

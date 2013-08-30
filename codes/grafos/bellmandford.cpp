@@ -7,11 +7,7 @@
 #define pb push_back
 #define mp make_pair
 using namespace std;
-/*
-Si un grafo contiene un ciclo de
-coste total negativo entonces este 
-grafo no tiene solución
-*/
+
 #define M 1000000000
 typedef pair<pair<int,int>,int> P;
 int N;

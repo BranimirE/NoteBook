@@ -82,7 +82,7 @@ breaklines=true,
 \end_index
 \leftmargin 3cm
 \topmargin 3cm
-\rightmargin 4cm
+\rightmargin 3cm
 \bottommargin 3cm
 \secnumdepth 3
 \tocdepth 3
@@ -2520,6 +2520,4436 @@ if (a & 0x20) {
 \end_deeper
 \begin_layout LyX-Code
 }
+\end_layout
+
+\begin_layout Chapter
+Desafios mas grandes
+\end_layout
+
+\begin_layout Section
+Teoría de Grafos
+\end_layout
+
+\begin_layout Subsection
+¿Qué es un Grafo?
+\end_layout
+
+\begin_layout Standard
+Formalmente, un grafo es lo siguiente:
+\end_layout
+
+\begin_layout Itemize
+una colección de vértices V, y 
+\end_layout
+
+\begin_layout Itemize
+una colección de aristas E consistente en pares de vértices.
+ 
+\end_layout
+
+\begin_layout Standard
+Piense en los vértices como ''ubicaciones''.
+ El conjunto de vértices es el conjunto de todas las posibles ubicaciones.
+ En esta analogía, las aristas representan caminos entre pares de estas
+ ubicaciones; el conjunto E contiene todos los caminos entre las ubicaciones.
+\end_layout
+
+\begin_layout Subsection
+Representación
+\end_layout
+
+\begin_layout Standard
+Los grafos son representados normalmente usando esa analogía.
+ Los vértices son puntos o círculos; las aristas son líneas entre ellos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph1.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este grafo ejemplo, 
+\begin_inset Formula $V={1,2,3,4,5,6}$
+\end_inset
+
+ y 
+\begin_inset Formula $E={(1,3),(1,6),(2,5),(3,4),(3,6)}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+cada vértice es un miembro del conjunto V.
+ Algunas veces un vértice es llamado un nodo.
+\end_layout
+
+\begin_layout Standard
+Cada arista es un miembro del conjunto E.
+ Note que algunos vértices podrían no ser el extremo de ninguna arista.
+ Tales vértices son llamados 'aislados'.
+\end_layout
+
+\begin_layout Standard
+Algunas veces, se asocian valores numéricos con las aristas, especificando
+ longitudes o costos; tales grafos son llamados grafos con aristas con pesos
+ (o grafos pesados).
+ El valor asociado con una arista es llamado el peso de la arista.
+ Se tiene una definición similar para grafos con nodos con pesos.
+\end_layout
+
+\begin_layout Subsection
+Ejemplos de Grafos
+\end_layout
+
+\begin_layout Subsubsection*
+Televacomunicación (Campeonato de la USACO 1996)
+\end_layout
+
+\begin_layout Standard
+Dado un conjunto de computadores y un conjunto de cables corriendo entre
+ pares de computadores, ¿Cuál es el mínimo número de máquinas cuya caída
+ cause que dos máquinas dadas no sean capaces de comunicarse? (Las dos máquinas
+ dadas no se caerán.)
+\end_layout
+
+\begin_layout Standard
+Grafo: Los vértices del grafo son computadores.
+ las aristas son los cables entre los computadores.
+\end_layout
+
+\begin_layout Subsubsection*
+Problema Ejemplo: Recorriendo Las Cercas
+\end_layout
+
+\begin_layout Standard
+El Granjero Juan tiene un gran número de cercas, cuya integridad debe revisar
+ periódicamente.
+ El mantiene registro de sus cercas manteniendo una lista de puntos en los
+ cuales las cercas se intersectan.
+ El registra el nombre del punto y uno o dos nombres de las cercas que tocan
+ ese punto.
+ Cada cerca tiene dos puntos extremos, cada uno en algún punto de intersección,
+ sin embargo el punto de intersección puede ser el punto extremo de solo
+ una cerca.
+\end_layout
+
+\begin_layout Standard
+Dada una distribución de las cercas, calcule si hay una manera para que
+ el Granjero Juan pueda recorrer en su caballo todas las cercas sin recorrer
+ una cerca más de una vez.
+ El Granjero Juan puede comenzar y terminar en cualquier parte, pero no
+ puede pasar a través de los campos (esto es, la única manera de desplazarse
+ entre puntos de intersección es al lado de una cerca).
+ Si hay alguna manera, encuentre una.
+\end_layout
+
+\begin_layout Standard
+Grafo: El Granjero Juan comienza en algún punto de intersección y viaja
+ entre los puntos a través de cercas.
+ Por lo tanto, los vértices en el grafo subyacente son los puntos de intersecció
+n, y las cercas representan aristas.
+\end_layout
+
+\begin_layout Subsubsection*
+Movimientos de Caballos
+\end_layout
+
+\begin_layout Standard
+Dados: Dos cuadrados en un tablero de ajedrez 8x8.
+ Determine la secuencia más corta para que un caballo llegue de un cuadrado
+ al otro.
+\end_layout
+
+\begin_layout Standard
+Grafo: El gráfico aquí es más difícil de ver.
+ Cada ubicación en el tablero de ajedrez representa un vértice.
+ Hay un arista entre dos posiciones si es un movimiento legal de caballo
+ llegar de una a la otra.
+\end_layout
+
+\begin_layout Subsubsection*
+Sobrecercando [Kolstad y Schrijvers, Abierto de Primavera de la USACO de
+ 1999]
+\end_layout
+
+\begin_layout Standard
+El Granjero Juan creó un gran laberinto de cercas en un campo.
+ El omitió dos segmentos de cerca en los extremos, creando por lo tanto
+ dos ``salidas'' para el laberinto.
+ El laberinto es un laberinto 'perfecto'; usted puede encontrar una salida
+ fuera del laberinto para cualquier punto dentro de él.
+\end_layout
+
+\begin_layout Standard
+Dada la distribución del laberinto, calcule el número de pasos requeridos
+ para salir del laberinto desde el `peor' punto en el laberinto (el punto
+ que está 'más lejos' de cualquier salida cuando se camina óptimamente a
+ la salida más cercana).
+\end_layout
+
+\begin_layout Standard
+Aqui está como luce un laberinto particular de 5 de ancho y 3 de alto: 
+\end_layout
+
+\begin_layout LyX-Code
++-+-+-+-+-+
+\end_layout
+
+\begin_layout LyX-Code
+|         |
+\end_layout
+
+\begin_layout LyX-Code
++-+ +-+ + +
+\end_layout
+
+\begin_layout LyX-Code
+|     | | |
+\end_layout
+
+\begin_layout LyX-Code
++ +-+-+ + +
+\end_layout
+
+\begin_layout LyX-Code
+| |     |
+\end_layout
+
+\begin_layout LyX-Code
++-+ +-+-+-+
+\end_layout
+
+\begin_layout Standard
+Grafo: Los vértices del grafo son las posiciones en la grilla.
+ Hay una arista entre dos vértices si ellos representan posiciones adyacentes
+ que no están separadas por una pared.
+\end_layout
+
+\begin_layout Subsection
+Terminología
+\end_layout
+
+\begin_layout Standard
+Miremos nuevamente el primer grafo ejemplo: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph1.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una arista es un auto-loop si es de la forma (u,u).
+ El grafo ejemplo no contiene auto-loops.
+\end_layout
+
+\begin_layout Standard
+Un grafo es simple si no contiene auto-loops y no contiene aristas repetidas
+ en E.
+ Un grafo es llamado multigrafo si contiene una arista dada más de una vez
+ o contiene auto-loops.
+ Para nuestra discusión, se asume que los grafos son simples.
+ El grafo ejemplo es un grafo simple.
+\end_layout
+
+\begin_layout Standard
+Una arista (u,v) es incidente tanto al vértice u como al vértice v.
+ Por ejemplo, la arista (1,3) es incidente al vértice 3.
+\end_layout
+
+\begin_layout Standard
+El grado de un vértice es el número de aristas que le son incidentes.
+ Por ejemplo, el vértice 3 tiene grado 3, mientras que el vértice 4 tiene
+ grado 1.
+\end_layout
+
+\begin_layout Standard
+El vértice u es adyacente al vértice v si hay alguna arista a la cual ambos
+ sean incidentes (esto es, hay un arista entre ellos).
+ Por ejemplo, el vértice 2 es adyacente al vértice 5.
+\end_layout
+
+\begin_layout Standard
+Se dice que un grafo es disperso si el número total de aristas es menor
+ comparado al número total posible ((N x (N-1))/2) y denso en caso contrario.
+ Para un grafo dado, si es denso o disperso no está bien-definido.
+\end_layout
+
+\begin_layout Subsubsection
+Grafos Dirigidos
+\end_layout
+
+\begin_layout Standard
+Los grafos descritos hasta el momentos son llamados no dirigidos, en tanto
+ las aristas van en `ambas direcciones'.
+ Hasta el momento, los grafos vistos cumplen la propiedad que si se puede
+ viajar del vértice 1 al vértice 3, también se puede ir del vértice 3 al
+ vértice 1.
+ En otras palabras, si (1, 3) está en el conjunto de aristas, (3,1) también
+ lo está.
+\end_layout
+
+\begin_layout Standard
+Sin embargo, algunas veces, un grafo es dirigido, en cuyo caso las aristas
+ tienen una dirección.
+ En este caso, las aristas son llamadas arcos.
+\end_layout
+
+\begin_layout Standard
+Los grafos dirigidos son dibujados con flechas para indicar dirección.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph2.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El grado-de-salida de un vértice es el número de arcos que comienzan en
+ ese vértice.
+ El grado-de-entrada de un vértice es el número de arcos que terminan en
+ ese vértice.
+ Por ejemplo, el vértice 6 tiene grado-de-entrada 2 y grado-de-salida 1.
+\end_layout
+
+\begin_layout Standard
+Se asume que un grafo es no dirigido a menos que sea llamado específicamente
+ grafo dirigido.
+\end_layout
+
+\begin_layout Subsubsection
+Caminos
+\end_layout
+
+\begin_layout Standard
+Un camino del vértice u al vértice x es una secuencia de vértices 
+\begin_inset Formula $(v_{0},v_{1},...,v_{k})$
+\end_inset
+
+ tal que 
+\begin_inset Formula $v_{0}=u$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{k}=xy(v_{0},v_{1})$
+\end_inset
+
+ es una arista en el grafo, como es 
+\begin_inset Formula $(v_{1},v_{2})$
+\end_inset
+
+, 
+\begin_inset Formula $(v_{2},v_{3})$
+\end_inset
+
+, etc.
+ La longitud de tal camino es 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, en el grafo no dirigido antes mostrado 
+\begin_inset Formula $(4,3,1,6)$
+\end_inset
+
+ es un camino.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph3.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se dice que este camino contiene los vértices 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+, etc., asi como las aristas (
+\begin_inset Formula $v_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+), (
+\begin_inset Formula $v_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+), etc.
+\end_layout
+
+\begin_layout Standard
+Se dice que el vértice x es alcanzable desde el vértice u si existe un camino
+ de u a x.
+\end_layout
+
+\begin_layout Standard
+Un camino es simple si no contiene ningún vértice más de una vez.
+\end_layout
+
+\begin_layout Standard
+Un camino es un ciclo si es un camino de algún vértice a ese mismo vértice.
+ Un ciclo es simple si no contiene ningún vértice más de una vez, excepto
+ el vértice inicial (y final), el cual únicamente aparece como el primer
+ y último vértice en el camino.
+\end_layout
+
+\begin_layout Standard
+Estas definiciones se extienden similarmente a grafos dirigidos (por ejemplo.,
+ (
+\begin_inset Formula $v_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+), (
+\begin_inset Formula $v_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+), etc.
+ deben ser arcos).
+\end_layout
+
+\begin_layout Subsection
+Representación de Grafos
+\end_layout
+
+\begin_layout Standard
+La elección de representación de un grafo es importante, pues diferentes
+ representaciones tienen diferentes costos de tiempo y de espacio.
+\end_layout
+
+\begin_layout Standard
+Los vértices son generalmente registrados numerándolos, de tal manera que
+ uno puede usar como índice simplemente su número.
+ Por, lo tanto las representaciones se enfocan en como almacenar las aristas.
+\end_layout
+
+\begin_layout Subsubsection
+Lista de Aristas
+\end_layout
+
+\begin_layout Standard
+La manera más obvia de mantener registro de los arcos es mantener una lista
+ de los pares de vértices representando las aristas en el grafo.
+\end_layout
+
+\begin_layout Standard
+Esta representación es fácil de codificar, bastante fácil de depurar, y
+ bastante eficiente en espacio.
+ Sin embargo, determinar los arcos incidentes a un vértice dado es caro,
+ asi como determinar si dos vértices son adyacentes.
+ Añadir una arista es rápido, pero eliminar uno es difícil si su ubicación
+ en la lista no es conocida.
+\end_layout
+
+\begin_layout Standard
+Para grafos con pesos, esta representación también registra un número más
+ para cada arista, el peso de la arista.
+ Extender esta estructura para manejar grafos dirigidos es directo.
+ Representar multigrafos también es trivial.
+\end_layout
+
+\begin_layout Paragraph*
+Ejemplo
+\end_layout
+
+\begin_layout Standard
+El grafo no dirigido del ejemplo podría ser representado como la siguiente
+ lista de aristas:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+e1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+e2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+e3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+e4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+e5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Matriz de Adyacencia
+\end_layout
+
+\begin_layout Standard
+Una segunda manera de representar un grafo es utilizando una matriz de adyacenci
+a.
+ Esto es un arreglo N por N (N es el número de vértices).
+ La entrada i,j contiene un 1 si la arista (i,j) está en el grafo; en otro
+ caso contiene un 0.
+ Para un grafo no dirigido, esta matriz es simétrica.
+\end_layout
+
+\begin_layout Standard
+Esta representación es fácil de codificar.
+ Es menos eficiente en espacio, especialmente para grafos grandes, dispersos.
+ La depuración es más difícil, pues la matriz es grande.
+ Encontrar las aristas incidentes a un vértice dado es algo caro (lineal
+ en el número de vértices), pero verificar si dos vértices son adyacentes
+ es muy fácil.
+ Añadir y remover aristas también son operaciones baratas.
+\end_layout
+
+\begin_layout Standard
+Para grafos pesados, el valor de la entrada (i,j) es usada para almacenar
+ el peso de la arista.
+ Para un multigrafo sin peso, la entrada (i,j) puede mantener el número
+ de aristas entre los vértices.
+ Para un multigrafo con peso, es más difícil extender esto.
+\end_layout
+
+\begin_layout Paragraph
+Ejemplo
+\end_layout
+
+\begin_layout Standard
+El grafo ejemplo no dirigido estaría representado por la siguiente matriz
+ de adyacencia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+v6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es algunas veces útil usar el hecho que la entrada (i,j) de la matriz que
+ resulta de elevar la matriz de adyacencia a la potencia k da el número
+ de caminos del vértice i al vértice j consistiendo de exactamente k aristas.
+\end_layout
+
+\begin_layout Subsubsection
+Lista de Adyacencias
+\end_layout
+
+\begin_layout Standard
+La tercera representación de un grafo es llevar registro de todos los arcos
+ incidentes a un vértice dado.
+ Esto puede ser hecho usando un arreglo de longitud N, donde N es el número
+ de vértices.
+ la entrada iésima en este arreglo es una lista de las aristas incidentes
+ al i-ésimo veritce (las aristas son representadas por el índice de los
+ otro vértice incidente a esa arista).
+\end_layout
+
+\begin_layout Standard
+Esta representación es mucho más difícil de codificar, especialmente si
+ el número de aristas incidentes a cada vértice no está acotado, por lo
+ tanto las listas deben ser listas vinculadas (o ubicadas dinámicamente).
+ Depurar esto es difícil, así como seguir listas vinculadas.
+ Sin embargo, esta representación usa tanta memoria como la lista de aristas.
+ Encontrar los vértices adyacentes a cada nado es muy barato en esta estructura,
+ pero verificar si dos vértices son adyacentes requiere verificar todas
+ las aristas adyacentes a uno ode los vèrtices.
+ Añadir una arista es fácil, pero borrar una arista es difícil, si las ubicacion
+es de la arista en las listas apropiadas son desconocidas.
+\end_layout
+
+\begin_layout Standard
+Extender esta representación para manejar grafos con pesos manteniendo ambos
+ el peso y el otro vértice incidente para cada arista en vez de simplemente
+ la otra arista incidente.
+ Los multigrafos son ya representables.
+ Los grafos dirigidos son también fácilmente manejables por esta representación,
+ en una de varias maneras: almacenar solo las aristas en una dirección,
+ llevar una lista separada de aristas entrantes y salientes, o denotar la
+ dirección de cada arista en la lista.
+\end_layout
+
+\begin_layout Paragraph
+Ejemplo
+\end_layout
+
+\begin_layout Standard
+La representación por lista de adyacencia del grafo no dirigido ejemplo
+ es como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vértices
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vertex
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Adyacentes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3, 6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6, 4, 1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3, 1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Representación Implìcita
+\end_layout
+
+\begin_layout Standard
+Para algunos grafos, el grafo en sí no tiene que ser almacenado del todo.
+ Por ejemplo, para los movimientos de caballo y los problemas de sobrecercado,
+ es fácil calcular los vecinos de un vértice, verificar adyacencia, y determinar
+ todas las aristas sin realmente almacenar esa información, por lo tanto,
+ no hay razón para realmente almacenar esa información; el grafo está implícito
+ en los datos en sí.
+\end_layout
+
+\begin_layout Standard
+Si es posible almacenar un grafo en este formato, es generalmente la manera
+ correcta de hacerlo, pues ahorra un montón de espacio y reduce la complejidad
+ de su código, haciéndolo más fácil tanto de escribir como de depurar.
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $N$
+\end_inset
+
+ es el número de vértices, 
+\begin_inset Formula $M$
+\end_inset
+
+ el número de aristas, y 
+\begin_inset Formula $d_{max}$
+\end_inset
+
+ el máximo grado de un nodo, la siguiente tabla resume las diferencias entre
+ las representaciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eficiencia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Lista de Aristas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Matriz de Adyacencia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Lista de Adyacencia
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Espacio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2*M$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N²$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2*M$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Verificación de Adyacencia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $M$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{max}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lista de Vert Ad
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $M$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{max}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Añadir Arista
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Borrar Arista
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $M$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2*d_{max}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Conexidad
+\end_layout
+
+\begin_layout Standard
+Se dice que un grafo no dirigido es conexo si hay un camino de cada vértice
+ a cada otro vértice.
+ El grafo ejemplo no es conexo, pues no hay camino del vértice 2 al vértice
+ 4.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph1.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sin embargo, si usted añade una arista entre los vértices 5 y 6, entonces
+ el grafo se vuelve conexo.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph1a.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una 
+\emph on
+componente 
+\emph default
+de un grafo es un conjunto maximal de vértices tal que cada vèrtice sea
+ alcanzable desde cualquier otro vértice en la componente.
+ El grafo ejemplo original tiene dos componentes: {1, 3, 4, 6} y {2, 5}.
+ Note que {1, 3, 4} no es una componente, pues no es maximal.
+\end_layout
+
+\begin_layout Standard
+Un grafo dirigido se dice fuertemente conectado Una 
+\emph on
+componente fuertemente conectada
+\emph default
+ de un grafo dirigido es un vértice u y la colección de todos los vértices
+ v tales que hay un camino de u a v y un camino de v a u.
+\end_layout
+
+\begin_layout Subsection
+Subgrafos
+\end_layout
+
+\begin_layout Standard
+El gráfico 
+\begin_inset Formula $G'=(V',E')$
+\end_inset
+
+ es un subrafo de 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ si 
+\begin_inset Formula $V'$
+\end_inset
+
+ es un subconjunto de 
+\begin_inset Formula $V$
+\end_inset
+
+ y 
+\begin_inset Formula $E'$
+\end_inset
+
+ es un subconjunto de 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El subgrafo 
+\begin_inset Formula $G$
+\end_inset
+
+ inducido por 
+\begin_inset Formula $V'$
+\end_inset
+
+ es el grafo 
+\begin_inset Formula $(V',E')$
+\end_inset
+
+, donde 
+\begin_inset Formula $E'$
+\end_inset
+
+ consite de todas las aristas de 
+\begin_inset Formula $E$
+\end_inset
+
+ que están entre miembros de 
+\begin_inset Formula $V'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, para 
+\begin_inset Formula $V'=$
+\end_inset
+
+{1, 3, 4, 2}, el subrafo inducido es: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph4.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Grafos Especiales
+\end_layout
+
+\begin_layout Standard
+Se dice que un grafo no dirigido es un 
+\emph on
+árbol
+\emph default
+ si no contiene ciclo y es conexo.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph5.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Muchos árboles son lo que se llama con 
+\emph on
+raíz
+\emph default
+, donde existe una noción del nodo "tope", el cual es llamado la raíz.
+ Por lo tanto cada nodo tiene un 
+\emph on
+padre
+\emph default
+, el cual es el nodo adyacente que est más cercano a la raíz, y puede tener
+ cualquier número de 
+\emph on
+hijos
+\emph default
+, los cuales son el resto de los nodos adyacentes a él.
+ El árbol de arriba fue dibujado como un árbol con raíz.
+\end_layout
+
+\begin_layout Standard
+Un grafo no dirigido que no contenga cilos, es llamado un 
+\emph on
+bosque
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph6.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un grafo dirigido aciclico se llama frecuentemente un 
+\emph on
+dag
+\emph default
+ ( del inglès directed acyclic graph).
+\end_layout
+
+\begin_layout Standard
+Se dice que un grafo es 
+\emph on
+completo
+\emph default
+ si hay una arista entre cada par de vértices.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph7.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se dice que un grafo es 
+\emph on
+bipartito
+\emph default
+ si los vértices pueden ser partidos en dos conjuntos 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ tales que no hay aristas entre dos vértices de 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ o dos aristas de 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/graph8.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Llenado por Inundación
+\end_layout
+
+\begin_layout Subsection
+Problema Ejemplo
+\end_layout
+
+\begin_layout Subsubsection*
+Campos Conectados
+\end_layout
+
+\begin_layout Standard
+La Finca del Granjero Juan está partida en campos, con caminos entre algunos
+ de ellos.
+ Desafortunadamente algunos campos no son alcanzables desde otros usando
+ los caminos.
+\end_layout
+
+\begin_layout Standard
+Defina un 
+\emph on
+supercampo
+\emph default
+ como una colección de campos que son todos alcanzables desde cada uno de
+ los otros.
+ Calcule el número de supercampos.
+\end_layout
+
+\begin_layout Subsection
+La Abstracción
+\end_layout
+
+\begin_layout Standard
+Dado: un grafo no dirigido
+\end_layout
+
+\begin_layout Standard
+Una 
+\emph on
+componente
+\emph default
+ de un grafo es un subgrafo de máximo tamaño (aunque no necesariamente máximo)
+ que es conexo.
+\end_layout
+
+\begin_layout Standard
+Calcule las componentes de un grafo.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/flood1.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+El Algoritmo
+\end_layout
+
+\begin_layout Subsubsection*
+Llenado por Inundación
+\end_layout
+
+\begin_layout Standard
+El llenado por inundación puede ser ejecutado de tres maneras básicas: primero-e
+n-profundidad, ancho primero, y recorrido ancho-primero.
+ La idea básica es encontrar algún nodo que no haya sido asignado a una
+ componente y calcular la componente que lo contiene.
+ La pregunta es cómo calcular la componente.
+\end_layout
+
+\begin_layout Standard
+En la formulación primero-en-profundidad, el algoritmo busca en cada paso
+ a través de todos los vecinos del nodo actual, y, para aquellos que no
+ han sido asignados aún a una componente, los asigna a esta componente y
+ hace recursión en ellos.
+\end_layout
+
+\begin_layout Standard
+En la formulaciòn primero-a-lo-ancho, en vez de hacer recursión en los nodos
+ nuevamente asignados, ellos son añadidos a una cola.
+\end_layout
+
+\begin_layout Standard
+En la formulación recorrido ancho-primero, cada nodo tiene dos valores:
+ componente y visitado.
+ Cuando se calcula la componente, el algoritmo va a través de todos los
+ nodos que han sido asignados a esa componente pero no hay sido aún visitados,
+ y asigna sus vecinos a la componente actual.
+\end_layout
+
+\begin_layout Standard
+La formulación primero-en-profundidad es la más fácil de codificar y de
+ depurar, pero puede requerir una pila tan grande como el grafo original.
+ Para grafos explícitos, esto no es tan malo, peor para grafos implícitos,
+ como el del ejemplo presentado, el número de nodos puede ser muy grande.
+\end_layout
+
+\begin_layout Standard
+La formulaciòn primero-a-lo-ancho lo hace un poco mejor, en tanto que la
+ cola es más eficiente que lo que es la pila en tiempo de ejecución, pero
+ aún puede tener el mismo problema.
+ Ambas formulaciones primero-en-profundidad y primero-a-lo-ancho corren
+ en tiempo N+M, donde N es el número de vértices y M es el número de aristas.
+\end_layout
+
+\begin_layout Standard
+La formulación recorrido en ancho-primero, sin embargo, requiere poco espacio
+ extra.
+ De hecho, siendo un poco tramposa, no requiere espacio extra.
+ Sin embargo, es más lenta, requiriendo hasta N*N + M tiempo, donde N es
+ el número de vértices del grafo.
+\end_layout
+
+\begin_layout Subsection
+Seudocódigo para Recorrido Primero a lo Ancho
+\end_layout
+
+\begin_layout Standard
+Este código usa un truco para no usar espacio extra, marcando a los nodos
+ a ser visitados como en componente -2 y asignándoles realmente a la componente
+ actual cuando ellos son visitados realmente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# component(i) denotes the
+\end_layout
+
+\begin_layout Plain Layout
+
+# component that node i is in
+\end_layout
+
+\begin_layout Plain Layout
+
+function flood_fill(new_component) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+do
+\end_layout
+
+\begin_layout Plain Layout
+
+  num_visited = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+  for all nodes i
+\end_layout
+
+\begin_layout Plain Layout
+
+    if component(i) = -2
+\end_layout
+
+\begin_layout Plain Layout
+
+      num_visited = num_visited + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+      component(i) = new_component
+\end_layout
+
+\begin_layout Plain Layout
+
+      for all neighbors j of node i
+\end_layout
+
+\begin_layout Plain Layout
+
+        if component(j) = nil
+\end_layout
+
+\begin_layout Plain Layout
+
+          component(j) = -2
+\end_layout
+
+\begin_layout Plain Layout
+
+until num_visited = 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+function find_components 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ num_components = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+ for all nodes i
+\end_layout
+
+\begin_layout Plain Layout
+
+   component(node i) = nil
+\end_layout
+
+\begin_layout Plain Layout
+
+ for all nodes i
+\end_layout
+
+\begin_layout Plain Layout
+
+   if component(node i) is nil
+\end_layout
+
+\begin_layout Plain Layout
+
+     num_components = num_components + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+     component(i) = -2
+\end_layout
+
+\begin_layout Plain Layout
+
+     flood_fill(component num_components)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El tiempo de corrida de este algoritmo es 
+\begin_inset Formula $O(N²)$
+\end_inset
+
+, donde N es el número de nodos.
+ Cada arista es recorrida dos veces (una vez por cada punto extremo), y
+ cada nodo es solo marcada una vez.
+\end_layout
+
+\begin_layout Subsection
+Ejemplo de Ejecución
+\end_layout
+
+\begin_layout Standard
+Considere el gráfico antes mostrado.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/flood1.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El algoritmo comienza con todos los nodos sin asignar a ninguna componente.
+\end_layout
+
+\begin_layout Standard
+Yendo a través de los nodos en orden, el primer nodo no asignado aún a ninguna
+ componente es el vértice 1.
+ Se comienza una nueva componente (componente 1) para ese nodo, y poner
+ la componente del nodo 1 a -2 (todos los nodos no mostrados están sin asignar).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora, en el código flood_fill, la primera vez a través del ciclo do, encuentra
+ que el nodo 1 está asignado a la componente -2.
+ Por lo tanto, lo reasigna a la componente 1, queriendo decir que ha sido
+ visitado, y luego asigna a sus vecinos (nodo 4) a la componente -2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Conforme el ciclo continua a través de todos los nodos, encuentra que el
+ nodo 4 también ha sido asignado a la componente -2, y lo procesa apropiadamente
+ también.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El nodo 8 es el siguiente a ser procesado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora, el ciclo for continua, y no encuentra más nodos que no hayan aún
+ sido asignados.
+ Desde que la cláusula until no ha sido satisfecha num_visited = 3), trata
+ nuevamente.
+ Esta vez, no se encuentran nodos, por lo tanto la función termina y se
+ ha terminado la componente 1.
+\end_layout
+
+\begin_layout Standard
+La búsqueda para nodos no asignados continua, encontrando el nodo 2.
+ Una nueva componente (componente 2) es ubicada, el nodo 2 es marcado como
+ en componente -2 y se llama a flood_fill.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El nodo 2 es encontrado y marcado como componente -2, y es procesado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A continuación, se procesa el nodo 7.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Luego se procesa el nodo 9.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La condición de terminación no se cumple (num_visited = 3), por lo tanto
+ la búsqueda a través de los nodos asignados a la componente -2 comienza
+ nuevamente.
+ El nodo 5 es el primero encontrado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El nodo 6 es el siguiente nodo encontrado para estar en la componente -2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No se encuentran más nodos asignados a la componente -2, pero la condición
+ de terminación no se cumple, por lo tanto un paso más a través de los nodos
+ es ejecutado, sin encontrar nodos asignados a la componente -2.
+ Por lo tanto, la búsqueda para nodos sin asignar continua desde el nodo
+ 2, encontrado al nodo 3 sin asignar.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se procesa el nodo 3.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Componente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De aquí en adelante, el algoritmo eventualmente termina, como no hay más
+ nodos asignados a la componente -2 y tampoco nodos sin asignar.
+ Las tres componentes en el grafo han sido determinadas, junto con la componente
+ a la cual pertenece cada nodo.
+\end_layout
+
+\begin_layout Subsection
+Pistas para los Problemas
+\end_layout
+
+\begin_layout Standard
+Generalmente, estos tipos de problemas son bastante claros.
+ Si preguntan por conjuntos de cosas "conectadas", están preguntando probablemen
+te por componentes, en cuyo caso llenado por inundación funciona bien.
+ Frecuentemente este es un paso para resolver el problema completo.
+\end_layout
+
+\begin_layout Subsection
+Extensiones
+\end_layout
+
+\begin_layout Standard
+La noción de ``componentes'' se modifica cuando usted va a grafos dirigidos.
+\end_layout
+
+\begin_layout Standard
+Sin embargo, la misma idea de inundación puede ser usada para determinar
+ los puntos que son alcanzables desde cualquier punto dado aún en un grafo
+ dirigido.
+ En cada paso recursivo, si el punto no está ya marcado, marque el punto
+ como alcanzable y haga recursiòn en todos sus vecinos.
+\end_layout
+
+\begin_layout Standard
+Note que para determinar dede que puntos se puede llegar a un punto dado
+ en un grafo dirigido puede ser resuelto de manera semejante, mirando cada
+ arco en sentido inverso.
+\end_layout
+
+\begin_layout Subsection
+Problemas Ejemplo
+\end_layout
+
+\begin_layout Subsubsection*
+Propiedad de Compañía [IOI 93]
+\end_layout
+
+\begin_layout Standard
+Dado: Un grafo con peso dirigido, con pesos entre 0 y 100.
+\end_layout
+
+\begin_layout Standard
+Un vértice A 
+\begin_inset Quotes eld
+\end_inset
+
+posee
+\begin_inset Quotes erd
+\end_inset
+
+ otro vértice B si:
+\end_layout
+
+\begin_layout Itemize
+A = B 
+\end_layout
+
+\begin_layout Itemize
+Hay un arco de A a B con peso mayor que 50.
+ 
+\end_layout
+
+\begin_layout Itemize
+Existe algún conjunto de vértices 
+\begin_inset Formula $C_{1}$
+\end_inset
+
+ hasta 
+\begin_inset Formula $C_{k}$
+\end_inset
+
+ tal que A posee a 
+\begin_inset Formula $C_{1}$
+\end_inset
+
+ hasta 
+\begin_inset Formula $C_{k}$
+\end_inset
+
+, y cada vértice tiene un arco de peso 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ hasta 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+ al vèrtice B, y 
+\begin_inset Formula $x_{1}+x_{2}+...+x_{k}>50$
+\end_inset
+
+.
+ Encuentre todos los pares (a,b) tales que a posea a b.
+\end_layout
+
+\begin_layout Standard
+Análisis: Esto puede ser resuelto a través de una adaptación de calcular
+ los vértices alcanzables desde un vértice en un grafo dirigido.
+ Par calcular cuales vértices posee el vértice A, lleve control del ``porcentaje
+ de propiedad'' de cada nodo.
+ Inicialice todos en cero.
+ Ahora, en cada paso recursivo, marque el nodo como poseído por el vértice
+ A y añada el peso de todos los arcos salientes a los ``porcentajes de propiedad.
+'' Para todos esos porcentajes que están encima de 50, haga recursividad
+ sobre estos vértices.
+\end_layout
+
+\begin_layout Subsubsection*
+Carrera Callejera [IOI 95, abreviado]
+\end_layout
+
+\begin_layout Standard
+Dado: un grafo dirigido, y un punto de inicio y un punto de finalización.
+\end_layout
+
+\begin_layout Standard
+Encuentre todos los puntos p tales que cualquier camino del punto incial
+ al final debe pasar por p.
+\end_layout
+
+\begin_layout Description
+Análisis: El algoritmo más fácil es remover cada punto por turno, y verificar
+ si el punto final es alcanzable desde el original.
+ Esto corre en tiempo 
+\begin_inset Formula $O(N(M+N))$
+\end_inset
+
+.
+ Desde que el problema original establece que 
+\begin_inset Formula $M<=100$
+\end_inset
+
+, y 
+\begin_inset Formula $N<=50$
+\end_inset
+
+, esto entrará fácilmente en tiempo.
+\end_layout
+
+\begin_layout Subsubsection*
+Cow Tours [Competencia Nacional de la USACO, abreviado]
+\end_layout
+
+\begin_layout Standard
+El diámetro de un grafo conexo se define como la distancia máxima entre
+ cualesquiera dos nodos del grafo, donde la distancia entre dos nodos está
+ definida como la longitud del camino más corto.
+\end_layout
+
+\begin_layout Standard
+Dado un conjunto de puntos en el plano, y las conexiones entre esos puntos,
+ encuentre los dos puntos que no están actualmente en la misma componente,
+ de tal manera que el diámetro de la componente resultante sea minimizado.
+\end_layout
+
+\begin_layout Description
+Análisis: Encuentre los componentes del grafo original, usando el método
+ antes descrito.
+ Luego, para cada para de puntos que no estén en la misma componente, trate
+ de colocar una conexión entre ellos.
+ Encuentre el par que minimice el diámetro.
+\end_layout
+
+\begin_layout Subsubsection*
+Campos Conectados
+\end_layout
+
+\begin_layout Standard
+El Granjero Juan contrató la construcción de un nuevo establo.
+ Desafortunadamente, el constructor mezcló los planos del establo del Granjero
+ Juan con otro conjunto de planos.
+ Los planos del Granjero Juan requerían un establo con una sola habitación,
+ pero la construcción que él obtuvo podría tener varias habitaciones.
+ Dada una grilla de la descripción del establo, dígale al Granjero Juan
+ cuántas habitaciones tiene.
+\end_layout
+
+\begin_layout Description
+Análisis: El grafo aquí está en las ubicaciones de la grilla que no son
+ paredes con aristas entre ubicaciones adyacentes, a pesar que el grafo
+ debería ser almacenado como la grilla, y no transformado en otra forma,
+ pues la grilla es compacta y fácil de manejar.
+ 
+\end_layout
+
+\begin_layout Section
+Estructuras de Datos Ganadoras
+\end_layout
+
+\begin_layout Subsubsection*
+Prerequisito
+\end_layout
+
+\begin_layout Itemize
+Teoría de Grafos
+\end_layout
+
+\begin_layout Subsection
+Como elegir la estructura de datos perfecta
+\end_layout
+
+\begin_layout Standard
+Hay varios aspectos de estructuras de datos a considerar cuando se selecciona
+ la manera adecuada de representar los datos para un problema.
+\end_layout
+
+\begin_layout Subsubsection*
+¿Funcionará?
+\end_layout
+
+\begin_layout Standard
+Si la estructura de datos no funciona, no sirve del todo.
+ Pregúntese usted mismo que preguntas el algoritmo necesitará ser capaz
+ de preguntar a la estructura de datos, y esté seguro de que la estructura
+ de datos las puede manejar.
+ Si no, entonces o se necesita añadir más datos en la estructura, o usted
+ necesita encontrar una representación diferente.
+\end_layout
+
+\begin_layout Subsubsection*
+¿Puedo Codificarla?
+\end_layout
+
+\begin_layout Standard
+Si usted no sabe o no puede recordar como codificar una estructura de datos
+ dada, elija una diferente.
+ Este seguro de que usted tiene una buena idea de como las operaciones afectarán
+ la estructura de los datos.
+\end_layout
+
+\begin_layout Standard
+Otra consideración aquí es memoria.
+ ¿Entrará la estructura en la memoria disponible? Si no, compáctela o elija
+ una nueva.
+ En caso contrario, es ya claro desde el principio que no funcionará.
+\end_layout
+
+\begin_layout Subsubsection*
+¿Puedo Codificarla a Tiempo?
+\end_layout
+
+\begin_layout Standard
+Como esto es una competencia con tiempo medido, usted tiene de tres a cinco
+ programas para escribir en cinco horas.
+ Si le tomará a usted una hora y media para codificar únicamente la estructura
+ de datos del primer problema, entonces usted casi seguramente está mirando
+ a la mala estructura.
+\end_layout
+
+\begin_layout Subsubsection*
+¿Puedo Depurarla?
+\end_layout
+
+\begin_layout Standard
+Es fácil de olvidarse este aspecto particular de la selección de estructuras
+ de datos.
+ Recuerde que un programa es inservible a menos que trabaje.
+ NO se olvide que el tiempo de depuración es una porción grande del tiempo
+ de competencia, por lo tanto incluya esta consideración para calcular el
+ tiempo de codificación.
+\end_layout
+
+\begin_layout Standard
+¿Qué hace que una estructura de datos sea fácil de depurar? Esto está básicament
+e determinado por las siguientes dos propiedades.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Establezca que es fácil de Examinar
+\series default
+ Cuando más pequeña, más compacta la representación, en general, es más
+ fácil de examinar.
+ También, los arreglos ubicados estáticamente son más faciles de examinar
+ que listas encadenadas o aún arreglos ubicados dinámicamente.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Establezca que Puede ser Mostrado Fácilmente
+\series default
+ Para las estructuras de datos más complicadas, la manera más fáciles de
+ examinarlas es escribir una rutina pequeña para mostrar los datos.
+ Desafortunadamente, dadas las limitaciones de tiempo, usted probablemente
+ querrá limitase a dar como salida texto.
+ Esto significa que estructuras como árboles y grafos van a ser difíciles
+ de examinar.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+¿Es Rápida?
+\end_layout
+
+\begin_layout Standard
+Esto es, sorprendentemente, la consideración menos importante cuando se
+ elige una estructura de datos.
+ Un programa lento normalmente conseguirá una porción notable de puntos,
+ pero un programa rápido, incorrecto no lo hará, a menos que tenga suerte.
+\end_layout
+
+\begin_layout Subsubsection*
+Conclusión
+\end_layout
+
+\begin_layout Standard
+En general, recuerde el principio MS: 
+\begin_inset Quotes eld
+\end_inset
+
+Manténgalo Simple
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Algunas veces mayor complejidad es muy útil, pero esté seguro de que usted
+ estè obteniendo la invertido.
+ Recuerde que tomarse el tiempo para asegurarse de que usted tiene la estructura
+ de datos correcta al principio es menos caro que tener que reemplazar más
+ tarde la estructura.
 \end_layout
 
 \end_body

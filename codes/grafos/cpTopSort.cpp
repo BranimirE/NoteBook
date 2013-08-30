@@ -1,3 +1,9 @@
+/*
+ G asiclico dirigido (DAG)
+ Las tareas no son independientes y la ejecución de una tarea 
+ sólo es posible si otras tareas que ya se han ejecutado.
+ Solo hay un orden 
+*/
 using namespace std;
 
 vector<int>graph[110];
@@ -21,7 +27,6 @@ void lim(){
 	sol.clear();
 }
 int main() {
-
     //llenado 
 		for (int i = 1; i <= n; i++)
 			if(!visitado[i])dfs(i);
