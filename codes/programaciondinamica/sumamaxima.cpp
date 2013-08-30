@@ -14,5 +14,6 @@ void subMatriz_con_sumaMaxima(int m[n][n]){
 			}
 		}
 	}
+	
 	printf("%d\n",res);
 }	

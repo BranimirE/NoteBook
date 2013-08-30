@@ -1,14 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <functional>
-#include <numeric>
-#include <utility>
-#include <sstream>
 #include <iostream>
-#include <iomanip>
-#include <cstdio>
-#include <cmath>
-#include <cstring>
+
 #define all(v) (v).begin(),(v).end()
 #define rall(v) (v).rbegin(),(v).rend()
 #define sz size()
@@ -27,8 +20,7 @@ void subsets(vector<int> v, vector<int>&ans){
 }
 
 int main(){
-	//freopen("in.txt","r",stdin);
-	//freopen("out.txt","w",stdout);
+
 	int N,X,Y,n,nx;
 	cin>>N>>X>>Y;
 	vector<int>v(N);

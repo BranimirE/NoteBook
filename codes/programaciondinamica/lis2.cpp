@@ -2,20 +2,19 @@
 #define SIZE 200000
 #define MAX(x,y) ((x)>(y)?(x):(y))
 
-int     best[SIZE];        // best[] holds values of the optimal sub-sequence
+int best[SIZE];        // best[] holds values of the optimal sub-sequence
 
 int main (void) {
-	FILE *in  = fopen ("input.txt", "r");
 	int i, n, k, x, sol;
 	int low, high;
 
-	fscanf (in, "%d", &n);	// N = how many integers to read in
+	scanf ("%d", &n);	// N = how many integers to read in
 	// read in the first integer
-	fscanf (in, "%d", &best[0]);
+	scanf ("%d", &best[0]);
 	sol = 1;
 	for (i = 1; i < n; i++) {
 		best[i] = -1;
-		fscanf (in, "%d", &x);
+		scanf ("%d", &x);
 
 		if(x >= best[0]) {
 			k = 0;
@@ -48,7 +47,5 @@ int main (void) {
 		sol = MAX (sol, k + 1);
 	}
 	printf ("best is %d\n", sol);
-	fclose(in);
 	return 0;
 }
-

@@ -1,9 +1,7 @@
 using namespace std;
-
 vector<int>graph[110];
 bool visitado[110];
 vector<int> sol;
-
 int n,m;
 void dfs(int node) {
 	visitado[node] = true;
@@ -21,13 +19,10 @@ void lim(){
 	sol.clear();
 }
 int main() {
-
     //llenado 
 		for (int i = 1; i <= n; i++)
 			if(!visitado[i])dfs(i);
-
 		reverse(sol.begin(), sol.end());
-		//print sol[]
-		
+		//printsol
 	return 0;
 }

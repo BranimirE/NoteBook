@@ -1,4 +1,3 @@
-#include <fstream>
 #include <cstdio>
 #include <cstring>
 
@@ -25,15 +24,10 @@ int mochila(int elem, int libre){
 }
 
 int main(){
-	freopen("entrada.in","r",stdin);
-
 	scanf("%d%d", &espaciolibre, &elementos);
 	for(int i = 0; i < elementos; i++)
 		scanf("%d%d", &peso[i], &ganancia[i]);
-	
 	memset(dp, -1, sizeof dp);
-
 	printf("%d\n", mochila( elementos -1, espaciolibre ));
-
 	return 0;
 }

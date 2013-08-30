@@ -1,8 +1,3 @@
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
-#include <vector>
-#include <set>
 #define f first
 #define s second
 #define pb push_back
@@ -14,7 +9,6 @@ typedef pair<V,int> P; 	//(coste,nodo)
 typedef set<P> S;		
 int N;
 vector<P>A[10001];		//COSTE NODO
-
 V dijstra(int s, int t){
 	S m;
 	vector<V>z(N,1000000000);
@@ -37,15 +31,10 @@ V dijstra(int s, int t){
 }
 int main(){
 	N=6;
+	//llenado
 	//A[a].pb(mp(c,b)); arista a,b coste c
 	A[0].pb(mp(2,1));//arista(0,1) coste 2
-	A[0].pb(mp(5,2));
-	A[1].pb(mp(2,2));
-	A[1].pb(mp(7,3));
-	A[2].pb(mp(2,4));
-	A[3].pb(mp(3,5));
-	A[4].pb(mp(2,3));
-	A[4].pb(mp(8,5));
+	//solucion
 	printf("%d\n",dijstra(4,5));
 	return 0;
 }
