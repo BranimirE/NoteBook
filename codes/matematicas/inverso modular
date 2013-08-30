@@ -1,0 +1,13 @@
+Si queremos hallar 
+a/b (mod p) donde p es primo
+
+es lo mismo que:
+
+(a*(b -1) ) (mod p)
+
+donde b -1  es el inverso modular de b
+Para hallar el inverso modular de un numero modulo p:
+ x-1 = modpow(x, p-2, p)
+Entonces, volviendo al problema:
+
+a/b (mod p) == a*modpow(b, p - 2, p) % p;

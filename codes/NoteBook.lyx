@@ -106,7 +106,308 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Chapter
-AD-HOC
+Ad-hoc y utilidades
+\end_layout
+
+\begin_layout Section
+Espicificadores de formato para printf y scanf
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="14" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Especificador
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tipo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+char
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cadena
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%d, %i
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+int
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%u
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+unsigned int
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%ld
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+long int
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%lu
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+unsigned long int
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%lld
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+long long int
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%llu
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+unsigned long long int
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%e, %f, %g
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+float
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%lf
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+double
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%o
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+número octal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+número hexadecimal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%patron
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+patron
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -325,12 +626,171 @@ lstinputlisting{divideyvenceras/mergesort2.cpp}
 
 \end_layout
 
+\begin_layout Section
+Meet in the Middle
+\end_layout
+
+\begin_layout Standard
+Si generamos los subconjuntos de una lista de N elementos; sabemos que existen
+ 2N subconjuntos, pero esta complejidad es demasiado cuando N es grande,
+ digamos (N>20).
+\end_layout
+
+\begin_layout Standard
+Problema.- Dado una secuencia de N (1<= N <=34) números, determinar cuántos
+ subconjuntos de esta secuencia tiene una suma entre A y B.
+\end_layout
+
+\begin_layout Standard
+Esta técnica consiste en 
+\emph on
+dividir en dos listas por la mitad
+\emph default
+, Luego generamos las sumatorias de los subconjuntos de cada lista y 
+\emph on
+los ordenamos
+\emph default
+.
+ Luego combinar ambos resultados.
+\end_layout
+
+\begin_layout Standard
+Considerare la sumatoria de conjunto vacio como 0.
+\end_layout
+
+\begin_layout Subsubsection*
+Ejemplo:
+\end_layout
+
+\begin_layout Standard
+L= { 2 , 5 , 6 , 1, 9};
+\end_layout
+
+\begin_layout Standard
+A=5, B=15
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Los dividimos en los listas por la mitad.
+\end_layout
+
+\begin_layout Standard
+X= { 2 , 5, 6}
+\end_layout
+
+\begin_layout Standard
+Y= { 1 , 9}
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Generamos los subconjuntos de cada lista.
+\end_layout
+
+\begin_layout Standard
+X’ = { 0, 2, 5 , {2,5}, 6,{2,6}, {5,6} ,{2,5,6} }
+\end_layout
+
+\begin_layout Standard
+Y’= { 0, 1, 9, {1,9} }
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Sumatorias de cada subconjunto de manera ordenada.
+\end_layout
+
+\begin_layout Standard
+X’= {0,2,5,6,7,8,11,13}
+\end_layout
+
+\begin_layout Standard
+Y’= {0,1,9,10}
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Combinar resultados
+\end_layout
+
+\begin_layout Standard
+Tenemos que recorrer la lista X’ y ver cuánto nos falta para llegar al intervalo
+ [A, B].
+\end_layout
+
+\begin_layout Itemize
+Si el primer elemento de X’ tenemos 0 entonces en la lista Y’ tenemos que
+ buscar cuantos elementos existen entre 5 y 15.
+\end_layout
+
+\begin_layout Itemize
+Si el segundo elemento de X’ tenemos 2 entonces en la lista Y’ buscamos
+ cuantos existen entre 3 y 13.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/meet.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si bien se dan cuenta es muy importante tener ambas listas de una manera
+ ordenada para poder buscar cuantos elementos existen en la segunda matriz
+ entre ese intervalo.
+\end_layout
+
+\begin_layout Standard
+El algoritmo sigue buscando hasta terminar con el último elemento de la
+ primera lista.
+\end_layout
+
 \begin_layout Chapter
 Programación Dinamica
 \end_layout
 
 \begin_layout Section
-El problema de la mochila
+El problema de la mochila y Subset Sum
+\end_layout
+
+\begin_layout Subsubsection*
+Subset Sum:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $OPT(j,W)=max\begin{cases}
+OPT(j-1,W) & (w_{j}>W)\\
+w_{j}+OPT(j-1,W-w_{j}) & (w_{j}\leq W)
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+0-1 Mochila
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $OPT(j,W)=max\begin{cases}
+OPT(j-1,W) & (w_{j}>W)\\
+\mathbf{v_{j}}+OPT(j-1,W-w_{j}) & (w_{j}\leq W)
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Standard
@@ -829,7 +1289,7 @@ lstinputlisting{cadenas/boyerMoore.cpp}
 \end_layout
 
 \begin_layout Section
-KMP
+Knuth Morris Pratt 
 \end_layout
 
 \begin_layout Standard

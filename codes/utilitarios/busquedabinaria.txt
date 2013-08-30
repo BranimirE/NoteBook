@@ -1,0 +1,20 @@
+Library
+C++'s Standard Template Library has four functions for binary search, depending on what information you want to get. They all need
+#include <algorithm>
+The lower_bound() function returns an iterator to the first position where a value could be inserted without violating the order; i.e. the first element equal to the element you want, or the place where it would be inserted.
+
+int *ptr = std::lower_bound(array, array+len, what); // a custom comparator can be given as fourth arg
+
+The upper_bound() function returns an iterator to the last position where a value could be inserted without violating the order; i.e. one past the last element equal to the element you want, or the place where it would be inserted.
+
+int *ptr = std::upper_bound(array, array+len, what); // a custom comparator can be given as fourth arg
+
+The equal_range() function returns a pair of the results of lower_bound() and upper_bound().
+
+std::pair<int *, int *> bounds = std::equal_range(array, array+len, what); // a custom comparator can be given as fourth arg
+
+Note that the difference between the bounds is the number of elements equal to the element you want.
+
+The binary_search() function returns true or false for whether an element equal to the one you want exists in the array. It does not give you any information as to where it is.
+
+bool found = std::binary_search(array, array+len, what); // a custom comparator can be given as fourth arg
