@@ -1,33 +1,59 @@
+/*
+Nota:
+Si los pesos son muy grandes o el valor de llenar la mochila es muy grande
+se puede utilizar un map en vez de una matriz para la memoizacion
+*/
 #include <cstdio>
+#include <algorithm>
 #include <cstring>
-
-const int MAXITEMS = 2005;
-const int MAXCAP   = 2005;
 
 using namespace std;
 
-int espaciolibre, elementos;
-int peso[MAXITEMS], ganancia[MAXITEMS];
+long long int lib;
 
-int dp[MAXITEMS][MAXCAP];
-int mochila(int elem, int libre){
-	if(elem == -1)
-		return 0;
-	int &ans = dp[elem][libre];
+bool sel[35][1005], sol[35];//para reconstruccion (*)
+int cant ; // * cantidad de elementos tomados
 
-	if(ans == -1 )
-		if(peso[elem] <= libre) // ¿ el elemento elem cabe en el espacio libre en la mochila ?
-			ans =  max(mochila(elem - 1, libre), ganancia[elem] + mochila(elem - 1, libre - peso[elem]));/*si cabe, asi que probamos cuando no tomamos el elemento y probamos si si metieramos el elemento*/
-		else
-			ans =  mochila(elem - 1, libre); /* no cabe, asi que lo ignoramos e intetamos meter los demas elementos */
-	return ans;
+long long int dp[35][1005], v[35], p[35];//dp[OBJETOS + 1][LIBRE + 1]
+long long int mochila(int i, int libre) { // Llamar mochila(N-1, libre)
+  if(i < 0)return 0LL;
+  long long int &ans = dp[i][libre];
+  if(ans != -1) return ans;
+  ans = mochila(i-1, libre);// no lo tomo
+  if(p[i] <= libre) { // si cabe en el espacio disponible
+    ans = max(ans ,v[i] + mochila(i-1, libre - p[i])); // pruebo si lo tomaria
+    if(ans ==  v[i] + mochila(i-1, libre - p[i]))//si se tomo el objeto (*)
+      sel[i][libre] = true;// marco como tomado (*)
+  }
+  return ans;
 }
 
-int main(){
-	scanf("%d%d", &espaciolibre, &elementos);
-	for(int i = 0; i < elementos; i++)
-		scanf("%d%d", &peso[i], &ganancia[i]);
-	memset(dp, -1, sizeof dp);
-	printf("%d\n", mochila( elementos -1, espaciolibre ));
-	return 0;
+//* Marca en el vector sol[ELEMEMTOS] los elementos que fueron tomados
+void reconstruir(int i, int libre) {
+  if(i < 0) return;
+  if(sel[i][libre]) { //si fue seleccionado
+    sol[i] = true;//marco
+    cant++;
+    reconstruir(i-1, libre - p[i]);
+  } else
+    reconstruir(i-1, libre);
+}
+
+int main() {
+  int n;
+  scanf("%d %lld", &n, &lib);
+  for(int i = 0; i < n; i++)
+    scanf("%lld %lld", &p[i], &v[i]);
+  memset(dp, -1, sizeof(dp));
+  memset(sel, false, sizeof(sel));//para la reconstruccion (*)
+  printf("%lld\n", mochila(n-1, lib));
+  // imprimir los elementos
+  memset(sol, false, sizeof(sol));
+  cant = 0;
+  reconstruir(n-1, lib);
+  printf("%d\n", cant);
+  for(int i = 0; i < n; i++)
+    if(sol[i])
+      printf("%lld %lld\n", p[i], v[i]);
+  return 0;
 }

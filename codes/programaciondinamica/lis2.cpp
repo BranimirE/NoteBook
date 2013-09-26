@@ -1,51 +1,37 @@
-#include <stdio.h>
-#define SIZE 200000
-#define MAX(x,y) ((x)>(y)?(x):(y))
+#include <algorithm>
+#include <cstdio>
+#include <stack>
+using namespace std;
 
-int best[SIZE];        // best[] holds values of the optimal sub-sequence
+#define MAX_N 100000
 
-int main (void) {
-	int i, n, k, x, sol;
-	int low, high;
+void imprimir(int end, int a[], int p[]) {
+  int x = end;
+  stack<int> s;
+  for (; p[x] >= 0; x = p[x]) s.push(a[x]);
+  printf("%d\n", a[x]);
+  for (; !s.empty(); s.pop()) printf("%d\n", s.top());
+}
 
-	scanf ("%d", &n);	// N = how many integers to read in
-	// read in the first integer
-	scanf ("%d", &best[0]);
-	sol = 1;
-	for (i = 1; i < n; i++) {
-		best[i] = -1;
-		scanf ("%d", &x);
+int main() {
+  int A[MAX_N], L[MAX_N], L_id[MAX_N], P[MAX_N];
+  int n, tmp;
+  scanf("%d", &n);
+  for(int i = 0; i < n; i++)
+    scanf("%d", &A[i]);
 
-		if(x >= best[0]) {
-			k = 0;
-			best[0] = x;
-		}
-		else {
-			// use binary search instead
-			low = 0;
-			high = sol-1;
-			for(;;) {
-				k = (int) (low + high) / 2;
-				// go lower in the array
-				if(x > best[k] && x > best[k-1]) {
-					high = k - 1;
-					continue;
-				}
-				// go higher in the array
-				if(x < best[k] && x < best[k+1]) {
-					low = k + 1;
-					continue;
-				}
-				// check if right spot
-				if(x > best[k] && x < best[k-1])
-					best[k] = x;
-				if(x < best[k] && x > best[k+1])
-					best[++k] = x;
-				break;
-			}
-		}
-		sol = MAX (sol, k + 1);
-	}
-	printf ("best is %d\n", sol);
-	return 0;
+  int lis = 0, lis_end = 0;
+  for (int i = 0; i < n; i++) {
+    int pos = lower_bound(L, L + lis, A[i]) - L;
+    L[pos] = A[i];
+    L_id[pos] = i;//(*) marcamos que posicion es la que estamso guardando
+    P[i] = pos ? L_id[pos - 1] : -1;//(*) El padre del i esimo elemento
+    if (pos + 1 > lis) {
+      lis = pos + 1;
+      lis_end = i;
+    }
+  }
+  printf("%d\n", lis);
+  imprimir(lis_end, A, P);
+  return 0;
 }
