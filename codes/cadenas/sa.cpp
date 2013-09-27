@@ -79,3 +79,27 @@ int main(){
    for(int i=0;i<n;i++)cout<<h[i]<<" ";cout<<endl;
    return 0;
 }
+ //rotacion menor lexicografica
+ /*
+ int tam1=strlen(s);
+      for(int i=tam1;i<2*tam1;i++)s[i]=s[i-tam1];
+      n=2*tam1;
+      suff_arr();
+      char dev[tam1];
+      for(int i=0;i<n;i++)
+         if(r[i]<tam1){
+            for(int j=r[i];j<r[i]+tam1;j++)
+               dev[j-r[i]]=s[j];
+            break;
+         }
+      for(int i=0;i<tam1;i++)
+      printf("%c",dev[i]);
+      
+ */
+/*
+ACM 2009 File Recover   Solucion  
+Problema: Contar los substrings q se repiten al menos una vez.
+Analisis: Notamos que si el lcp(i,i+1) con lcp(i+1,i+2)  aumenta 
+quiere decir que encontramos h[i+1]-h[i] palabras nuevas (prefijos)
+SUM(max(h[i+1]-h[i],0))
+*/
