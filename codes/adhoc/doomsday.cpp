@@ -1,6 +1,5 @@
 //Entrada: Una fecha (ene = 1, ..., dic = 12) Salida: Dia de la semana
 string vec[7] = {"DOM","LUN","MAR","MIE","JUE","VIE","SAB"};
-
 string doomsday(int dia, int mes, int anio){
 	int a, y, m, d;	
 	a = (14 - mes) / 12;

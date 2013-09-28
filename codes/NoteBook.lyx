@@ -165,6 +165,26 @@ lstinputlisting{adhoc/doomsday.cpp}
 
 \end_layout
 
+\begin_layout Section
+Hanoi
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{utilitarios/hanoi.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Estructuras
 \end_layout
@@ -221,7 +241,27 @@ status open
 
 
 \backslash
-lstinputlisting{estructuras/SegmenTree.cpp}
+lstinputlisting{estructuras/SegmentTree2.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otra implementacion en java:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{estructuras/SegmentTree.java}
 \end_layout
 
 \end_inset
@@ -579,6 +619,26 @@ lstinputlisting{programaciondinamica/mochila.cpp}
 \end_layout
 
 \begin_layout Section
+El problema de la mochila(iterativo)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/mochilaiterativo.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Cambio de modenas
 \end_layout
 
@@ -647,6 +707,74 @@ lstinputlisting{programaciondinamica/lis2.cpp}
 \end_layout
 
 \begin_layout Section
+Suma maxima en rango
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/max1drangesum.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Suma maxima en rango 2D 
+\begin_inset Formula $O(n^{4})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/max2drangesum1.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Suma maxima en rango 2D 
+\begin_inset Formula $O(n^{3})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/max2drangesum2.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Maxima submatriz de ceros
 \end_layout
 
@@ -706,6 +834,26 @@ lstinputlisting{programaciondinamica/levenshtein.cpp}
 
 \end_layout
 
+\begin_layout Section
+Distancia de edición (Recursivo)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{programaciondinamica/editdistance.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Grafos
 \end_layout
@@ -755,7 +903,7 @@ Topological Sort
 \end_layout
 
 \begin_layout Standard
-G asiclico dirigido (DAG) 
+Grafo Aciclico Dirigido (DAG) 
 \end_layout
 
 \begin_layout Standard
@@ -792,7 +940,7 @@ status open
 
 
 \backslash
-lstinputlisting{grafos/dijstra.cpp}
+lstinputlisting{grafos/dijkstra2.cpp}
 \end_layout
 
 \end_inset
@@ -909,6 +1057,26 @@ lstinputlisting{grafos/Tarjan.cpp}
 
 \end_layout
 
+\begin_layout Standard
+Otra implementacion:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/tarjan2.java}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Minimum Spanning Tree (Kruskall)
 \end_layout
@@ -930,6 +1098,26 @@ lstinputlisting{grafos/kruskall.cpp}
 \end_layout
 
 \begin_layout Section
+Minimum Cut
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/MinCut.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 MaxFlow
 \end_layout
 
@@ -942,6 +1130,86 @@ status open
 
 \backslash
 lstinputlisting{grafos/MaxFlow.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lowest common ancestor (LCA)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/LCA.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Puntos Criticos
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/bridges.java}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Maximum Bipartite Matching 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/MaximumBipartiteMatching.java}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Puntos de Articulación
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/ArticulationPoints.java}
 \end_layout
 
 \end_inset
@@ -1247,6 +1515,66 @@ $
 
 \end_layout
 
+\begin_layout Section
+Fraccion
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/fraccion.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Matriz
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/matrix.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Gauss Jordan
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/gaussjordan.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Cadenas
 \end_layout
@@ -1336,6 +1664,26 @@ lstinputlisting{cadenas/ipermutacion.cpp}
 \end_layout
 
 \begin_layout Section
+Iesima permutación
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/ipermutacion.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Algoritmo de Manacher
 \end_layout
 
@@ -1357,6 +1705,66 @@ status open
 
 \backslash
 lstinputlisting{cadenas/manacher.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Longest Common Subsequence (LCS)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/lcs.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Suffix Array
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/sa.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Suffix Array DC3
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/dc3_sybcadena.cpp}
 \end_layout
 
 \end_inset

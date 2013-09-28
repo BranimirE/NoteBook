@@ -1,10 +1,3 @@
-#include <iostream>
-#include <cstring>
-#include <cstdio>
-#include <cmath>
-
-using namespace std;
-
 int nrosol, f, c;
 int sol[10];
 bool sePuede(int fila, int col){
@@ -30,10 +23,8 @@ void solve(int col){
 			solve(col + 1);
 		}
 }
-
 int main(){
-	int T;
-	cin >> T;
+	int T; cin >> T;
 	while(T--){
 		printf( "SOLN       COLUMN\n #      1 2 3 4 5 6 7 8\n\n" );
 		cin >> f >> c;
@@ -42,8 +33,6 @@ int main(){
 		memset(sol, 0, sizeof(sol));
 		sol[c] = f;
 		solve(1);
-		if(T)
-			puts("");
 	}
 	return 0;
 }

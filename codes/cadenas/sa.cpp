@@ -17,10 +17,10 @@
 #include<map>
 using namespace std;
 #define MAXN 1000005
-int n,t;  //n es el tamaño de la cadena
+int n,t;  //n es el tamanio de la cadena
 int p[MAXN],r[MAXN],h[MAXN];
 //p es el inverso del suffix array, no usa indices del suffix array ordenado
-//h el el tamaño del lcp entre el i-esimo y el i+1-esimo elemento de suffix array ordenado
+//h el el tamanio del lcp entre el i-esimo y el i+1-esimo elemento de suffix array ordenado
 //r indices sufijo ordenado
 string s;
 void fix_index(int *b, int *e) {
