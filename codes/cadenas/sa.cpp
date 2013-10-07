@@ -1,28 +1,31 @@
-#include<cstdio>
-#include<cstdlib>
-#include<iostream>
-#include<sstream>
-#include<cmath>
-#include<string>
-#include<cstring>
-#include<cctype>
-#include<algorithm>
-#include<vector>
-#include<bitset>
-#include<queue>
-#include<stack>
-#include<utility>
-#include<list>
-#include<set>
-#include<map>
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
+#include <cmath>
+#include <string>
+#include <cstring>
+#include <cctype>
+#include <algorithm>
+#include <vector>
+#include <bitset>
+#include <queue>
+#include <stack>
+#include <utility>
+#include <list>
+#include <set>
+#include <map>
 using namespace std;
 #define MAXN 1000005
-int n,t;  //n es el tamanio de la cadena
+int n,t;  //n es el tamaño de la cadena
+int m,tam1;
+set<string> orde;
 int p[MAXN],r[MAXN],h[MAXN];
+//r indices del sa para mostrar indice   s.substr(r[i])
 //p es el inverso del suffix array, no usa indices del suffix array ordenado
-//h el el tamanio del lcp entre el i-esimo y el i+1-esimo elemento de suffix array ordenado
-//r indices sufijo ordenado
-string s;
+//h el el tamaño del lcp entre el i-esimo y el i+1-esimo elemento de suffix array ordenado
+char s[250000];
+char s2[250000];
 void fix_index(int *b, int *e) {
    int pkm1, pk, np, i, d, m;
    pkm1 = p[*b + t];
@@ -69,16 +72,55 @@ void lcp() {
    }
    h[n - 1] = 0;
 }
- 
-int main(){
-   s="mississippi$";
-   n=s.size();
-   suff_arr();
-   lcp();
-   for(int i=0;i<n;i++)cout<<r[i]<<" ";cout<<endl;
-   for(int i=0;i<n;i++)cout<<h[i]<<" ";cout<<endl;
-   return 0;
+int owner(int idx){
+    return (idx < n-m-1) ? 1 : 2;
 }
+int main(){
+   freopen("760.in","r",stdin);
+   bool sw=false;
+   while(scanf("%s",&s)==1){
+      scanf("%s",&s2);
+      strcat(s,"$");
+      tam1=strlen(s);
+      strcat(s,s2);
+      strcat(s,"#");
+      n =strlen(s);
+      m=strlen(s)-tam1;
+      suff_arr();
+      lcp();
+      int dev=0;
+      string dev2;
+      orde.clear();
+      for(int i=0;i<n;i++){
+         if(owner(r[i]) != owner(r[i-1])){   //por si quiere mostrat $ o #
+            if(h[i-1] >= dev){
+               dev=h[i-1];
+               //cout<<r[i]<<" --- "<<h[i-1]<<endl;
+               string aux="",aux2="";
+               for(int j=0;j<dev;j++){ 
+                  aux2=s[r[i]+j];
+                  aux+=aux2;
+               }
+               orde.insert(aux);
+            }
+         }
+      }
+
+      if(sw)
+         printf("\n");
+      sw = true;
+      if(dev == 0)
+         printf("No common sequence.\n");
+      else{
+         set<string>::iterator it=orde.begin();
+         for (;it!=orde.end(); it++){
+          if((*it).size()==dev)cout <<*it<< endl;
+       }
+    }
+ }
+ return 0;
+}
+
  //rotacion menor lexicografica
  /*
  int tam1=strlen(s);
