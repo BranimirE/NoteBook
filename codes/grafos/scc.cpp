@@ -9,6 +9,9 @@
 #define clr(a)  memset(a,0,sizeof(a))
 #define pb push_back
 using namespace std;
+/*
+Finding Strongly Connected Components
+*/
 vector<int>grafo[N];
 vector<int>gaux;
 bool visitado[N];
