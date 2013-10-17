@@ -1,4 +1,4 @@
-Suffix Array
+/////////////////////// Suffix Array  ///////////////
  Algunas Aplicaciones
    /////////////// Rotacion lexicografica menor ///////////////
     scanf("%s",&s);
@@ -21,6 +21,7 @@ Suffix Array
 		for(int i=0;i<tam1;i++){
 			printf("%c",cam[i]);	//print camino
 		}
+	//nota es un poco caro 
 		
 /////////////////////// palindromo mas grande ///////////////
 /////////////////////// mayor substring 2 cadenas ///////////////
