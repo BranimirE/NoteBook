@@ -1,0 +1,8 @@
+Segundo Mejor Arbol de Expansion
+Complejidad: O(V*E) , (V = nodos, E=Arcos)
+
+- Armamos el primer MST
+- Para cada arco en el MST el Segundo Mejor Arbol de Expansion es el minimo de:
+	- Ignoramos ese arco
+	- Hallamos el MST sin ese arco
+- No es necesario volver a ordenar por que ya se ordeno al calcular el primer MST
