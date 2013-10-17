@@ -17,6 +17,7 @@
 #include <map>
 using namespace std;
 /*
+ boths algorithm
 http://en.wikipedia.org/wiki/Lexicographically_minimal_string_rotation
 */
 int Minlex(const char *s, const int slen) {
