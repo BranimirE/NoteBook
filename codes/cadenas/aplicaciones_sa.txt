@@ -1,0 +1,30 @@
+Suffix Array
+ Algunas Aplicaciones
+   /////////////// Rotacion lexicografica menor ///////////////
+    scanf("%s",&s);
+		tam1=strlen(s);
+		for(int i=tam1;i<2*tam1;i++){
+			s[i]=s[i-tam1];
+		}
+		n=2*tam1;
+		s[n++]='~';	//cual quiera de estos { | } ~
+		suff_arr();
+		char cam[tam1];
+		for(int i=0;i<n;i++){
+			if(r[i]<tam1){
+				printf("%d\n",r[i]+1);	//inicio lexicografica
+				for(int j=r[i];j<r[i]+tam1;j++)
+					cam[j-r[i]]=s[j];     //llenar camino
+				break;
+			}
+		}
+		for(int i=0;i<tam1;i++){
+			printf("%c",cam[i]);	//print camino
+		}
+		
+/////////////////////// palindromo mas grande ///////////////
+/////////////////////// mayor substring 2 cadenas ///////////////
+/////////////////////// subcadenas distintas ///////////////
+///////////////////////                        ///////////////
+///////////////////////                        ///////////////
+///////////////////////  FIN SUFFIX ARRAY   ///////////////
