@@ -4,7 +4,8 @@
 #define NN 100048
 using namespace std;
 
-// LCA con pesos halla camino corto desde a hasta b con numero de consultas q
+// LCA con pesos 
+// halla camino corto desde a hasta b con numero de consultas q
 
 int P[NN][17], L[NN];
 long long W[NN];
