@@ -24,8 +24,23 @@
 	//nota es un poco caro 
 		
 /////////////////////// palindromo mas grande ///////////////
+usar Manachaer
 /////////////////////// mayor substring 2 cadenas ///////////////
+n,m tamaño respectivo de las cadenas 1,2 respectivamente
+int owner(int idx){
+    return (idx < n-m-1) ? 1 : 2;
+}
+//main
+for(int i=0;i<n;i++){
+         if(owner(r[i]) != owner(r[i-1])){   //por si quiere mostrat $ o #
+            ans=max(ans,h[i-1]);	     // ans subcadena maxima
+         }
+}
+//end main
 /////////////////////// subcadenas distintas ///////////////
-///////////////////////                        ///////////////
-///////////////////////                        ///////////////
+int dev=s.size()*(s.size()+1)/2;
+s += '$';
+suff_arr();lcp();
+for(int i=0;i<n;i++)dev-=h[i];
 ///////////////////////  FIN SUFFIX ARRAY   ///////////////
+
