@@ -1,4 +1,4 @@
-/*Permite encontrar los coeficientes (x, y) mas pequeños de:
+/*Permite encontrar los coeficientes (x, y) mas pequenios de:
 	ax + by = gcd(a, b);
 */
 int x, y;//Al terminar la sol estara aqui

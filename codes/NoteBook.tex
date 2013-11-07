@@ -121,12 +121,22 @@ Otra implementacion en java:
 \lstinputlisting{estructuras/trie.cpp}
 
 
+\section{Arbol Binario de Busqueda}
+
+\lstinputlisting{estructuras/arbolbinario.cpp}
+
+
 \chapter{Complete Search }
 
 
 \section{El problema de las ocho reinas}
 
 \lstinputlisting{busquedacompleta/ochoreinas.cpp}
+
+
+\section{El problema de las ocho reinas acelerado con Bits}
+
+\lstinputlisting{busquedacompleta/ochoreinas2.cpp}
 
 
 \chapter{Divide y venceras}
@@ -321,7 +331,7 @@ es posible si otras tareas que ya se han ejecutado. Solo hay un orden
 
 \section{Dijkstra}
 
-\lstinputlisting{grafos/dijkstra2.cpp}
+\lstinputlisting{grafos/dijkstra.cpp}
 
 
 \section{BellmandFord}
@@ -361,6 +371,25 @@ Otra implementacion:
 \lstinputlisting{grafos/kruskall.cpp}
 
 
+\section{Second Minimum Spanning Tree}
+
+Segundo Mejor Arbol de Expansion Complejidad: O(V{*}E) , (V = nodos,
+E=Arcos)
+\begin{itemize}
+\item Armamos el primer MST 
+\item Para cada arco en el MST el Segundo Mejor Arbol de Expansion es el
+minimo de: 
+
+\begin{itemize}
+\item Ignoramos ese arco 
+\item Hallamos el MST sin ese arco 
+\end{itemize}
+\item No es necesario volver a ordenar por que ya se ordeno al calcular
+el primer MST
+\end{itemize}
+\lstinputlisting{grafos/segundomst.cpp}
+
+
 \section{Minimum Cut}
 
 \lstinputlisting{grafos/MinCut.cpp}
@@ -376,19 +405,29 @@ Otra implementacion:
 \lstinputlisting{grafos/LCA.cpp}
 
 
-\section{Puntos Criticos}
+\section{Maximo Emparejamiento Bipartito }
+
+\lstinputlisting{grafos/MaximoEmparejamientoBipartito.cpp}
+
+
+\section{Puentes}
 
 \lstinputlisting{grafos/bridges.java}
-
-
-\section{Maximum Bipartite Matching }
-
-\lstinputlisting{grafos/MaximumBipartiteMatching.java}
 
 
 \section{Puntos de Articulación}
 
 \lstinputlisting{grafos/ArticulationPoints.java}
+
+
+\section{Camino Euleriano}
+
+\lstinputlisting{grafos/eulertour.cpp}
+
+
+\section{Dijkstra Fast}
+
+\lstinputlisting{grafos/dijkstrafast.cpp}
 
 
 \chapter{Matemáticas}
@@ -404,6 +443,11 @@ Otra implementacion:
 \lstinputlisting{matematicas/lcm.cpp}
 
 
+\section{Algoritmo extendido de euclides}
+
+\lstinputlisting{matematicas/euclidesextendido.cpp}
+
+
 \section{Exponenciación rapida}
 
 \lstinputlisting{matematicas/exponenciacion.cpp}
@@ -412,6 +456,11 @@ Otra implementacion:
 \section{Criba de Erathostenes}
 
 \lstinputlisting{matematicas/criba.cpp}
+
+
+\section{Criba de Erathostenes Aumentada}
+
+\lstinputlisting{matematicas/cribaaumentada.cpp}
 
 
 \section{Triangulo de Pascal}
@@ -468,6 +517,11 @@ $a/b(mod\, p)=(a*modpow(b,p-2,p)%)%p
 $
 
 
+\section{El juego de Nim}
+
+\lstinputlisting{matematicas/nim.cpp}
+
+
 \section{Fraccion}
 
 \lstinputlisting{matematicas/fraccion.cpp}
@@ -481,6 +535,11 @@ $
 \section{Gauss Jordan}
 
 \lstinputlisting{matematicas/gaussjordan.cpp}
+
+
+\section{Numeros romanos}
+
+\lstinputlisting{matematicas/romanos.cpp}
 
 
 \chapter{Cadenas}
@@ -508,17 +567,16 @@ Encuentra todos los match de un patron en el texto.
 \lstinputlisting{cadenas/ipermutacion.cpp}
 
 
-\section{Iesima permutación}
-
-\lstinputlisting{cadenas/ipermutacion.cpp}
-
-
 \section{Algoritmo de Manacher}
 
 El algoritmo guarda el tamaño del palindrome mas grande en LP{[}pos{]}
 que tiene como centro las posición \emph{pos} en la cadena original
 
 \lstinputlisting{cadenas/manacher.cpp}
+
+Otra implementacion:
+
+\lstinputlisting{cadenas/manacher2.cpp}
 
 
 \section{Longest Common Subsequence (LCS)}
@@ -536,9 +594,19 @@ que tiene como centro las posición \emph{pos} en la cadena original
 \lstinputlisting{cadenas/dc3_sybcadena.cpp}
 
 
+\section{Minima Rotacion Lexicografica}
+
+\lstinputlisting{cadenas/MinRotLex.cpp}
+
+
 \section{Trie}
 
 \lstinputlisting{cadenas/trie.cpp}
+
+
+\section{Aplicaciones}
+
+\lstinputlisting{cadenas/aplicaciones.txt}
 
 
 \chapter{Geometria Computacional}

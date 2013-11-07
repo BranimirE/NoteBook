@@ -1,5 +1,5 @@
 /*
-Rotacion Lexicografica minima MinRotLex(cadena,tamaño)
+Rotacion Lexicografica minima MinRotLex(cadena,tamanio)
 para cambiar inicio de la cadena char s[300]; int h; s+h; 
 retorna inicio de la rotacion minima :D
 */
@@ -25,4 +25,13 @@ int MinRotLex(const char *s, const int slen) {
       }
    }
    return i;
+}
+int main(){
+	int n;
+	scanf("%d",&n);getchar();
+	while(n--){
+		char str[10009];
+		gets(str);
+		printf("%d\n",Minlex(str,strlen(str))+1);
+	}
 }

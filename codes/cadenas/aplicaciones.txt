@@ -26,7 +26,7 @@
 /////////////////////// palindromo mas grande ///////////////
 usar Manachaer
 /////////////////////// mayor substring 2 cadenas ///////////////
-n,m tamaño respectivo de las cadenas 1,2 respectivamente
+n,m tamanio respectivo de las cadenas 1,2 respectivamente
 int owner(int idx){
     return (idx < n-m-1) ? 1 : 2;
 }

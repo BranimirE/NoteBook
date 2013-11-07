@@ -3,7 +3,7 @@ char str[MAXN];
 int rad[MAXN];
 int n;
 /*
-EN rad se guarda el tamaño del palindromo
+En rad se guarda el tamanio del palindromo
 str[0]='$';         // si o si 
 scanf("%s", str+1); // puntero para iniciar desde 1
 n=strlen(str+1);

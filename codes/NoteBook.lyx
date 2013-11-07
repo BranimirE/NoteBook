@@ -309,6 +309,26 @@ lstinputlisting{estructuras/trie.cpp}
 
 \end_layout
 
+\begin_layout Section
+Arbol Binario de Busqueda
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{estructuras/arbolbinario.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Complete Search 
 \end_layout
@@ -326,6 +346,26 @@ status open
 
 \backslash
 lstinputlisting{busquedacompleta/ochoreinas.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+El problema de las ocho reinas acelerado con Bits
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{busquedacompleta/ochoreinas2.cpp}
 \end_layout
 
 \end_inset
@@ -940,7 +980,7 @@ status open
 
 
 \backslash
-lstinputlisting{grafos/dijkstra2.cpp}
+lstinputlisting{grafos/dijkstra.cpp}
 \end_layout
 
 \end_inset
@@ -1098,6 +1138,54 @@ lstinputlisting{grafos/kruskall.cpp}
 \end_layout
 
 \begin_layout Section
+Second Minimum Spanning Tree
+\end_layout
+
+\begin_layout Standard
+Segundo Mejor Arbol de Expansion Complejidad: O(V*E) , (V = nodos, E=Arcos)
+\end_layout
+
+\begin_layout Itemize
+Armamos el primer MST 
+\end_layout
+
+\begin_layout Itemize
+Para cada arco en el MST el Segundo Mejor Arbol de Expansion es el minimo
+ de: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ignoramos ese arco 
+\end_layout
+
+\begin_layout Itemize
+Hallamos el MST sin ese arco 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+No es necesario volver a ordenar por que ya se ordeno al calcular el primer
+ MST
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/segundomst.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Minimum Cut
 \end_layout
 
@@ -1158,7 +1246,27 @@ lstinputlisting{grafos/LCA.cpp}
 \end_layout
 
 \begin_layout Section
-Puntos Criticos
+Maximo Emparejamiento Bipartito 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/MaximoEmparejamientoBipartito.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Puentes
 \end_layout
 
 \begin_layout Standard
@@ -1170,26 +1278,6 @@ status open
 
 \backslash
 lstinputlisting{grafos/bridges.java}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Maximum Bipartite Matching 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-lstinputlisting{grafos/MaximumBipartiteMatching.java}
 \end_layout
 
 \end_inset
@@ -1210,6 +1298,46 @@ status open
 
 \backslash
 lstinputlisting{grafos/ArticulationPoints.java}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Camino Euleriano
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/eulertour.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Dijkstra Fast
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{grafos/dijkstrafast.cpp}
 \end_layout
 
 \end_inset
@@ -1262,6 +1390,26 @@ lstinputlisting{matematicas/lcm.cpp}
 \end_layout
 
 \begin_layout Section
+Algoritmo extendido de euclides
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/euclidesextendido.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Exponenciación rapida
 \end_layout
 
@@ -1294,6 +1442,26 @@ status open
 
 \backslash
 lstinputlisting{matematicas/criba.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Criba de Erathostenes Aumentada
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/cribaaumentada.cpp}
 \end_layout
 
 \end_inset
@@ -1516,6 +1684,26 @@ $
 \end_layout
 
 \begin_layout Section
+El juego de Nim
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/nim.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Fraccion
 \end_layout
 
@@ -1568,6 +1756,26 @@ status open
 
 \backslash
 lstinputlisting{matematicas/gaussjordan.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Numeros romanos
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{matematicas/romanos.cpp}
 \end_layout
 
 \end_inset
@@ -1664,26 +1872,6 @@ lstinputlisting{cadenas/ipermutacion.cpp}
 \end_layout
 
 \begin_layout Section
-Iesima permutación
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-lstinputlisting{cadenas/ipermutacion.cpp}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 Algoritmo de Manacher
 \end_layout
 
@@ -1705,6 +1893,26 @@ status open
 
 \backslash
 lstinputlisting{cadenas/manacher.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otra implementacion:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/manacher2.cpp}
 \end_layout
 
 \end_inset
@@ -1773,6 +1981,26 @@ lstinputlisting{cadenas/dc3_sybcadena.cpp}
 \end_layout
 
 \begin_layout Section
+Minima Rotacion Lexicografica
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/MinRotLex.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Trie
 \end_layout
 
@@ -1785,6 +2013,26 @@ status open
 
 \backslash
 lstinputlisting{cadenas/trie.cpp}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aplicaciones
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{cadenas/aplicaciones.txt}
 \end_layout
 
 \end_inset

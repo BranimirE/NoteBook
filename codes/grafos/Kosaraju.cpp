@@ -1,111 +1,61 @@
-#include <stack>
-#include <queue>
+#include <cstdio>
 #include <vector>
 #include <cstring>
+#include <fstream>
 
-#include <map>
-#include <cstdio>
-#include <iostream>
+#define MAX 2005
 
 using namespace std;
-
-/*
-Algoritmo de Kosaraju para
-Componentes Fuertemente Conexas
-*/
-
-#define MAX_V 1000
-
-int V,num_scc;
-vector< vector<int> > G;
-vector< vector<int> > GT;
-bool visited[MAX_V];
-stack<int> S;
-queue<int> Q;
-
-void dfs(int v){
-    visited[v] = true;
-    
-    for(int i=G[v].size()-1;i>=0;--i)
-        if(!visited[G[v][i]])
-            dfs(G[v][i]);
-    
-    S.push(v);
+vector<int> g[MAX], gt[MAX];
+vector<int> S;//para el topsort
+int N,M;// nodos, edges
+int numSCC;
+bool vis[MAX];
+int scc[MAX];// Para asignar scc correspondiente
+void dfs(int u, int pass) {
+  vis[u] = true;
+  vector<int> &ady = ((pass == 1)?g[u]: gt[u]);
+  for(int j = 0; j < ady.size(); j++) {
+    int v = ady[j];
+    if(!vis[v])
+      dfs(v, pass);
+  }
+  if(pass == 1) S.push_back(u);//adicionamos al topsort
+  else scc[u] = numSCC; // asignamos a que SCC pertenece el nodo
 }
 
-void bfs(int v){
-    Q.push(v);
-    visited[v] = true;
-    
-    int aux;
-    
-    while(!Q.empty()){
-        aux = Q.front();
-        Q.pop();
-        
-        for(int i=GT[aux].size()-1;i>=0;i--){
-            if(!visited[GT[aux][i]]){
-                Q.push(GT[aux][i]);
-                visited[GT[aux][i]] = true;
-            }
-        }
+int kosaraju() {
+  S.clear();
+  memset(vis, false, sizeof(vis));
+  for(int i = 1; i <= N; i++)//Los nodos estan numerados de 1 - N
+    if(!vis[i])
+      dfs(i, 1);
+  numSCC = 0;
+  memset(vis, false, sizeof(vis));
+  memset(scc, -1, sizeof(scc));
+  for(int i = N-1; i >= 0; i--)
+    if(!vis[S[i]]) {
+      dfs(S[i], 2);
+      numSCC++;
     }
+  return numSCC;
 }
-void SCC(){
-    memset(visited,false,sizeof(visited));
-    
-    for(int i=0;i<V;++i) if(!visited[i]) dfs(i);
-    
-    num_scc = 0;
-    int aux;
-    
-    memset(visited,false,sizeof(visited));
-    
-    for(int i=0;i<V;++i){
-        aux = S.top();
-        S.pop();
-        
-        if(!visited[aux]){
-            bfs(aux);
-            ++num_scc;
-        }
-    }
-}
-
 int main(){
-    int E,u,v;
-    string s;
-    map<string, int> num;
-    
-    while(true){
-        scanf("%d %d",&V,&E);
-        if(V==0) break;
-        
-        getline(cin,s);
-        num.clear();
-        
-        for(int i=0;i<V;++i){
-            getline(cin,s);
-            num[s] = i;
-        }
-        
-        G.clear(); G.resize(V);
-        GT.clear(); GT.resize(V);
-        
-        for(int i=0;i<E;++i){
-            getline(cin,s);
-            u = num[s];
-            getline(cin,s);
-            v = num[s];
-            
-            G[u].push_back(v);
-            GT[v].push_back(u);
-        }
-        
-        SCC();
-        
-        printf("%d\n",num_scc);
+  //freopen("in", "r", stdin);
+  int u, v, sent;
+  while(scanf("%d%d", &N, &M) and !(!N and !M)){
+    for(int i = 1; i <= N; i++)g[i].clear(), gt[i].clear();
+    while(M--){
+      scanf("%d%d%d", &u, &v, &sent);
+      if(sent == 1){//un solo sentido
+        g[u].push_back(v);
+        gt[v].push_back(u);
+      }else{//Doble sentido
+        g[u].push_back(v);g[v].push_back(u);
+        gt[v].push_back(u);gt[u].push_back(v);
+      }
     }
-    
-    return 0;
+    printf("%d\n", kosaraju()==1);
+  }
+  return 0;
 }
