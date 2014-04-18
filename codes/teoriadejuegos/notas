@@ -1,0 +1,3 @@
+BINGO
+=====
+- Si analizamos las reglas del bingo notaremos que todos los numeros en un tarjeta de bingo deberian ser diferentes, entonces, no tiene sentido que cuando hagan llamadas mencionen la columna ('B', 'I', 'N', 'G', 'O', Ejemplo: "B1", "N3").
