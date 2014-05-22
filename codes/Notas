@@ -1,0 +1,1 @@
+1° Tener cuidado al declarar el tamaño de los arrays mas pequeños de lo necesario en C++, por ejemplo si declaramos dp[10000], pero accedemos a dp[100000] (un cero mas) no da Run Time Error, podria dar Tiempo de Limite Exedido por que accede pero como no nos pertenece ese sector de memoria nos da informacion falsa
